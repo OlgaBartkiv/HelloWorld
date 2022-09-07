@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace HelloWorld
@@ -11,6 +12,15 @@ namespace HelloWorld
             for (int a=0; a<10; a++)
             {
                 Console.WriteLine($"For loop iteration number: {a+1}");
+            }
+        }
+
+        public void ForLoopReverse()
+        {
+            int count = 1;
+            for (int d=10; d>0; d--)
+            {
+                Debug.WriteLine($"For reverse loop iteration number: {count++}");
             }
         }
 
