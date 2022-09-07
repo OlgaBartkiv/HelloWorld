@@ -17,6 +17,17 @@ namespace HelloWorld
             stringCases.ConvertingCharToUppercase();
             stringCases.ConvertStringToUppercase();
             stringCases.ParseValuesFromString();
+
+            BasicVariables basicVariables = new BasicVariables();
+            //basicVariables.CompareUnassignedValues();
+            //basicVariables.CompareDifferentAssignedValues();
+            //basicVariables.CompareSameAssignedValues();
+            //basicVariables.CompareFloatAndDouble();
+            basicVariables.CompareFloatAndDoubleUsingCycle();
+            //basicVariables.DivideValuesByZero();
+            //basicVariables.DivideValuesByIntAndAssignResult();
+            //basicVariables.DivideValuesByDoubleAndMakeRound();
+
         }
     }
 }
