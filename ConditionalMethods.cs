@@ -112,21 +112,21 @@ namespace HelloWorld
 
         public void DefineAge()
         {
-            int age = 18;
+            int age = 30;
 
             switch(age)
             {
                 case 10:
-                    Console.WriteLine("My age is 10");
+                    Console.WriteLine($"My age is {age}");
                     break;
                 case 18:
-                    Console.WriteLine("My age is 18");
+                    Console.WriteLine($"My age is {age}");
                     break;
                 case 25:
-                    Console.WriteLine("My age is 25");
+                    Console.WriteLine($"My age is {age}");
                     break;
                 case 30:
-                    Console.WriteLine("My age is 30");
+                    Console.WriteLine($"My age is {age}");
                     break;
             }  
         }
