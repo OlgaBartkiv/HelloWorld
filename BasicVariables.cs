@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace HelloWorld
@@ -31,11 +32,12 @@ namespace HelloWorld
             longVariable = 1234567890123;
             doubleVariable = 123.45678;
             floatVariable = 456.45F;
-            stringVariable = "String Variable";
+            stringVariable = "50";
 
             Console.WriteLine($"Compared assigned different values for Int and Long: {intVariable == longVariable}");
             Console.WriteLine($"Compared assigned different values for Double and Long: {doubleVariable == longVariable}");
             Console.WriteLine($"Compared assigned different values for Float and Double: {floatVariable == doubleVariable}");
+            Debug.WriteLine($"Compared assigned different values for String and Int: {stringVariable.Equals(intVariable)}");
         }
 
         /// <summary>
@@ -74,6 +76,21 @@ namespace HelloWorld
             floatVariable = 0.1F;
             doubleVariable = 0.1;
             Console.WriteLine($"Compared '0.1' value for Float and Double: {floatVariable == doubleVariable}");
+        }
+
+        /// <summary>
+        /// Compare Float and Double arrays using Cycle
+        /// </summary>
+        public void CompareFloatAndDoubleUsingCycle()
+        {
+            float[] floatArray = { 0.5f, 0.7f, 1.0f, 0.1f };
+            double[] doubleArray = { 0.5, 0.7, 1.0, 0.1 };
+
+            for (int i=0; i<doubleArray.Length; i++)
+            {
+                Debug.WriteLine($"{doubleArray[i]} == {floatArray[i]} : {doubleArray[i] == floatArray[i]}");
+            }
+
         }
 
         /// <summary>

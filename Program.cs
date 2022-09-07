@@ -9,13 +9,14 @@ namespace HelloWorld
             Console.WriteLine("Hello World!");
 
             BasicVariables basicVariables = new BasicVariables();
-            basicVariables.CompareUnassignedValues();
-            basicVariables.CompareDifferentAssignedValues();
-            basicVariables.CompareSameAssignedValues();
-            basicVariables.CompareFloatAndDouble();
+            //basicVariables.CompareUnassignedValues();
+            //basicVariables.CompareDifferentAssignedValues();
+            //basicVariables.CompareSameAssignedValues();
+            //basicVariables.CompareFloatAndDouble();
+            basicVariables.CompareFloatAndDoubleUsingCycle();
             //basicVariables.DivideValuesByZero();
-            basicVariables.DivideValuesByIntAndAssignResult();
-            basicVariables.DivideValuesByDoubleAndMakeRound();
+            //basicVariables.DivideValuesByIntAndAssignResult();
+            //basicVariables.DivideValuesByDoubleAndMakeRound();
 
         }
     }
