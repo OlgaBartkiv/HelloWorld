@@ -49,6 +49,18 @@ namespace HelloWorld
             //cycles.PrintingArrayUsingForeach();
             //Console.WriteLine($"Reversed number: {cycles.ReverseNumber(753081)}");
             //cycles.CheckIfPalindrome(753357);
+            //Console.WriteLine("Hello World!");
+            ConditionalMethods conditionalMethods = new ConditionalMethods();
+            //conditionalMethods.CompareBooleanVariables();
+            //conditionalMethods.CompareNumericVariables();
+            //conditionalMethods.CompareStringsUsingTernaryOperator();
+            //conditionalMethods.CompareOperandsUsingLogicalAND();
+            //conditionalMethods.CompareOperandsUsingConditionalLogicalAND();
+            //conditionalMethods.CompareOperandsUsingLogicalOR();
+            //conditionalMethods.CompareOperandsUsingConditionalLogicalOR();
+            //conditionalMethods.ComparingUsingEqualityOperatorAndEqualsMethod();
+            //conditionalMethods.UsingBitwiseOperators();
+            conditionalMethods.DefineAge();
         }
     }
 }
