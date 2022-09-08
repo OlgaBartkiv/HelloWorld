@@ -9,10 +9,11 @@ namespace HelloWorld
             Console.WriteLine("Hello World!");
 
             Collections collections = new Collections();
-            collections.ListCollectionMethods();
-            collections.LinkedListCollectionMethods();
-            collections.HashSetCollectionMethods();
-            collections.HashMapCollectionMethods();
+            //collections.ListCollectionMethods();
+            //collections.LinkedListCollectionMethods();
+            //collections.HashSetCollectionMethods();
+            //collections.HashMapCollectionMethods();
+            collections.IdentifyUniqueArrayElements();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace HelloWorld
@@ -111,6 +113,15 @@ namespace HelloWorld
 
             // counting the number of elements in collection
             Console.WriteLine($"Count of elements: {Flowers.Count}");
+        }
+
+        public void IdentifyUniqueArrayElements()
+        {
+            int[] myArray = { 1, 2, 3, 4, 5, 5, 15, 3, 7, 8, 5, 2, 9, 5, 1, 11, 12, 14, 5, 2 };
+
+            var duplicates = myArray.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => new { Item = y.Key, Count = y.Count() }).ToList();
+
+            Debug.WriteLine(String.Join("\n", duplicates));
         }
 
 
