@@ -70,6 +70,11 @@ namespace HelloWorld
         {
             Debug.WriteLine(sound);
         }
+        //overload method with enum value as parameter
+        public void Sound(SoundTypes soundTypes)
+        {
+            Debug.WriteLine($"I'm saying {soundTypes}");
+        }
     }
 
     public class Dog : Animal
@@ -95,6 +100,13 @@ namespace HelloWorld
         {
             Debug.WriteLine($"Chewing {ownersClothItem}");
         }
+
+        //overload method with enum value as parameter
+        public void Chew(OwnerClothItems ownerClothItems)
+        {
+            Debug.WriteLine($"Now I'm chewing {ownerClothItems}");
+        }
+
     }
 
     public class Cat : Animal
@@ -120,5 +132,34 @@ namespace HelloWorld
         {
             Debug.WriteLine($"Scratching {furnitureType}");
         }
+
+        //overload method with enum value as parameter
+        public void Scratch(FurnitureItems furnitureItems)
+        {
+            Debug.WriteLine($"Now I'm scratching {furnitureItems}");
+        }
+    }
+    public enum FurnitureItems
+    {
+        Sofa = 1,
+        Doors = 2,
+        Chair = 3,
+        Table = 4
+    }
+
+    public enum OwnerClothItems
+    {
+        Socks = 1,
+        Hat = 2,
+        Pants = 3,
+        Gloves = 4
+    }
+
+    public enum SoundTypes
+    {
+        Mooooooo = 1,
+        Woof = 2,
+        Meow = 3,
+        CluckCluck = 4
     }
 }
