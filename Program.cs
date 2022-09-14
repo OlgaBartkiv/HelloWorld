@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HelloWorld
 {
@@ -9,7 +10,11 @@ namespace HelloWorld
             Console.WriteLine("Hello World!");
             Operators operators = new Operators();
             operators.MathOperations();
-            operators.RetrieveRandomItem();
+            NullValidation nullValidation = new NullValidation();
+            nullValidation.RetrieveRandomItem();
+            nullValidation.RetrieveItemUsingCycle();
+            nullValidation.AddNotNullItemsToCollection();
+
         }
     }
 }
