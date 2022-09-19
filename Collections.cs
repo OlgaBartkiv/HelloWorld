@@ -1,4 +1,5 @@
 ﻿using HelloWorld.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -243,6 +244,32 @@ namespace HelloWorld
         public string GetPoliticianInfo(Politician politician)
         {
             return $"{politician.Id}, {politician.FirstName}, {politician.LastName}, {politician.Age}, {politician.Position}";
+        }
+
+        public void JsonForPolitician()
+        {
+            var PoliticianSalary = new List<int>() { 100, 500, 1000, 10000 };
+            string[] politicianHobby = { "box", "comedy", "tennis", "sauna" };
+            List<string> PoliticianWife = new List<string>() { "Hillary", "Olena", "Carrie", " " };
+
+            // serialize/deserialize List<int>
+            var serializedSalary = JsonConvert.SerializeObject(PoliticianSalary);
+            Debug.WriteLine(serializedSalary);
+            var deserializedSalary = JsonConvert.DeserializeObject(serializedSalary);
+            Debug.WriteLine(deserializedSalary);
+
+            // serialize/deserialize string array
+            string serializedHobby = JsonConvert.SerializeObject(politicianHobby);
+            Debug.WriteLine(serializedHobby);
+            var deserializedHobby = JsonConvert.DeserializeObject(serializedHobby);
+            Debug.WriteLine(deserializedHobby);
+
+            // serialize/deserialize List<string>
+            string serializedWife = JsonConvert.SerializeObject(PoliticianWife);
+            Debug.WriteLine(serializedWife);
+            var deserializedWife = JsonConvert.DeserializeObject(serializedWife);
+            Debug.WriteLine(deserializedWife);
+
         }
 
     }
