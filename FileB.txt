@@ -1,0 +1,1 @@
+[{"name":"Cooking","duration":2,"day":" Monday"},{"name":"Cleaning","duration":3,"day":" Friday"},{"name":"Gardening","duration":1,"day":" Tuesday"}]

@@ -9,22 +9,22 @@ namespace HelloWorld
         {
             Console.WriteLine("Hello World!");
 
-            StringCases stringCases = new StringCases();
-            stringCases.ParseStringToJson();
-            stringCases.ConcatenateStrings();
-            stringCases.TrimString();
-            stringCases.SplitStringAndPrintSeparate();
-            stringCases.SplitStringAndCleanEmptySpaces();
-            stringCases.ConvertingCharToUppercase();
-            stringCases.ConvertStringToUppercase();
-            stringCases.ParseValuesFromString();
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
 
-            BasicVariables basicVariables = new BasicVariables();
+            //BasicVariables basicVariables = new BasicVariables();
             //basicVariables.CompareUnassignedValues();
             //basicVariables.CompareDifferentAssignedValues();
             //basicVariables.CompareSameAssignedValues();
             //basicVariables.CompareFloatAndDouble();
-            basicVariables.CompareFloatAndDoubleUsingCycle();
+            //basicVariables.CompareFloatAndDoubleUsingCycle();
             //basicVariables.DivideValuesByZero();
             //basicVariables.DivideValuesByIntAndAssignResult();
             //basicVariables.DivideValuesByDoubleAndMakeRound();
@@ -51,7 +51,7 @@ namespace HelloWorld
             //Console.WriteLine($"Reversed number: {cycles.ReverseNumber(753081)}");
             //cycles.CheckIfPalindrome(753357);
             //Console.WriteLine("Hello World!");
-            ConditionalMethods conditionalMethods = new ConditionalMethods();
+            //ConditionalMethods conditionalMethods = new ConditionalMethods();
             //conditionalMethods.CompareBooleanVariables();
             //conditionalMethods.CompareNumericVariables();
             //conditionalMethods.CompareStringsUsingTernaryOperator();
@@ -61,21 +61,25 @@ namespace HelloWorld
             //conditionalMethods.CompareOperandsUsingConditionalLogicalOR();
             //conditionalMethods.ComparingUsingEqualityOperatorAndEqualsMethod();
             //conditionalMethods.UsingBitwiseOperators();
-            conditionalMethods.DefineAge();
+            //conditionalMethods.DefineAge();
 
-            Collections collections = new Collections();
-            collections.ListCollectionMethods();
-            collections.LinkedListCollectionMethods();
-            collections.HashSetCollectionMethods();
-            collections.HashMapCollectionMethods();
-            collections.IdentifyUniqueArrayElements();
-            collections.PetsListMethods();
-            collections.PoliticiansSortedListMethods();
-            ValidParentheses validParentheses = new ValidParentheses();
-            string input1 = "(3+5)*4/7+(7-3))";
-            Debug.WriteLine(validParentheses.Valid(input1));
-            object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
-            validParentheses.ValidArray(array);
+            //Collections collections = new Collections();
+            //collections.ListCollectionMethods();
+            //collections.LinkedListCollectionMethods();
+            //collections.HashSetCollectionMethods();
+            //collections.HashMapCollectionMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
+            //collections.PoliticiansSortedListMethods();
+            //ValidParentheses validParentheses = new ValidParentheses();
+            //string input1 = "(3+5)*4/7+(7-3))";
+            //Debug.WriteLine(validParentheses.Valid(input1));
+            //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
+            //validParentheses.ValidArray(array);
+
+            FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            fileOperationsCases.WritingJsonToFile();
+            fileOperationsCases.ReadingFromFile();
         }
     }
 }
