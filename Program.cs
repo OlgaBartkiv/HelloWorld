@@ -82,9 +82,10 @@ namespace HelloWorld
             exceptionsCases.DivideInteger("44", "0");
             exceptionsCases.DivideInteger(12, "0");
             exceptionsCases.DivideIntegerWithSwitch("33", "0");
-            //exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
+            exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
             exceptionsCases.FindItemInCollection(4);
             exceptionsCases.CreateFile();
+            exceptionsCases.DifferentLogLevels();
 
         }
     }
