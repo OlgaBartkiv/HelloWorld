@@ -9,11 +9,13 @@ namespace HelloWorld
         {
             Console.WriteLine("Hello World!");
             Operators operators = new Operators();
-            operators.MathOperations();
+            //operators.MathOperations();
+            //operators.MathOperationsForString();
             NullValidation nullValidation = new NullValidation();
-            nullValidation.RetrieveRandomItem();
-            nullValidation.RetrieveItemUsingCycle();
-            nullValidation.AddNotNullItemsToCollection();
+            //nullValidation.RetrieveRandomItem();
+            //nullValidation.RetrieveItemUsingCycle();
+            //nullValidation.AddNotNullItemsToCollection();
+            nullValidation.AddNotNullItemsToCollectionVersionTwo();
 
         }
     }

@@ -19,6 +19,16 @@ namespace HelloWorld
             Debug.WriteLine($"a={a}, b={b}, c={c}");
         }
 
+        public void MathOperationsForString()
+        {
+            string a = "Beautiful ";
+            string b = "day";
+            Debug.WriteLine(a + b);
+
+            a += "garden";
+            Debug.WriteLine(a);
+        }
+
     }
     public class NullValidation
     {
@@ -28,8 +38,8 @@ namespace HelloWorld
 
             Random rnd = new Random();
             object result = myList[rnd.Next(0, myList.Count)];
-            if (result != null) 
-                Debug.WriteLine($"random item: {result!}");
+            if (result != null)
+                Debug.WriteLine($"random item: {result}");
             return result;
         }
 
@@ -68,6 +78,23 @@ namespace HelloWorld
             }
 
             Debug.WriteLine(String.Join(", ", secondList));
+        }
+
+        public void AddNotNullItemsToCollectionVersionTwo()
+        {
+            List<object> secondList = new List<object>() { 10, "Donald", 2.79769313486232E+3, 's', 35.5, null };
+
+            object item;
+            int secondListInitialSize = secondList.Count;
+            do
+            {
+                item = RetrieveRandomItem();
+                if (item != null)
+                    secondList.Add(item);
+            }
+            while (secondList.Count < secondListInitialSize + 3);
+            Debug.WriteLine(String.Join(", ", secondList));
+
         }
 
 
