@@ -10,7 +10,7 @@ namespace HelloWorld
         {
             Console.WriteLine("Hello World!");
 
-            Drink drink = new Drink
+            Drink drink = new Drink()
             {
                 Ingredients = new List<string>
                 {
@@ -62,6 +62,10 @@ namespace HelloWorld
             DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
             string result4 = dairyDessert.DairyFree(dessert);
             Debug.WriteLine(result4);
+
+            /// 'new' constraint implementation
+            Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
+            /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
         }
     }
 }
