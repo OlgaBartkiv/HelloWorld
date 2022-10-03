@@ -90,7 +90,11 @@ namespace HelloWorld
             {
                 item = RetrieveRandomItem();
                 if (item != null)
+                {
                     secondList.Add(item);
+                }
+                continue;
+                    
             }
             while (secondList.Count < secondListInitialSize + 3);
             Debug.WriteLine(String.Join(", ", secondList));
