@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelloWorld.Models;
+using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 
 namespace HelloWorld
@@ -78,8 +80,12 @@ namespace HelloWorld
             //validParentheses.ValidArray(array);
 
             FileOperationsCases fileOperationsCases = new FileOperationsCases();
-            fileOperationsCases.WritingJsonToFile();
-            fileOperationsCases.ReadingFromFile();
+            HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            Debug.WriteLine(JsonDeserializationService.DeserializeJson(myHomeActivity));
+            Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            //fileOperationsCases.ReadingFromFile();
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,45 +11,66 @@ using System.Text;
 
 namespace HelloWorld
 {
-     public class FileOperationsCases
+    public enum ActivityData
     {
-        public void WritingJsonToFile()
+        Name = 0,
+        Duration = 1,
+        WeekDay = 2
+    }
+
+    public class FileOperationsCases
+    {
+
+        public void WritingJsonToFile(HomeActivity homeActivity)
         {
-            HomeActivity homeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            var testDirectory = TestContext.CurrentContext.TestDirectory;
 
             string serialized = JsonConvert.SerializeObject(homeActivity, Formatting.Indented);
 
             if (IsValidJson(serialized))
-                File.WriteAllText(@"C:\Users\obartkiv\source\repos\HelloWorld\FileA.txt", JsonConvert.SerializeObject(homeActivity));
-
+            {
+                File.WriteAllText(testDirectory + @"\FileA.txt", JsonConvert.SerializeObject(homeActivity));
+            }
         }
 
         public void ReadingFromFile()
         {
+            var testDirectory = TestContext.CurrentContext.TestDirectory;
+
             List<HomeActivity> listOfActivities = new List<HomeActivity>();
             string line;
 
-            StreamReader file = new StreamReader(@"C:\Users\obartkiv\source\repos\HelloWorld\FileB.txt");
+            StreamReader file = new StreamReader(testDirectory + @"\FileB.txt");
 
-            while ((line = file.ReadLine()) != null)
+            if (File.Exists(testDirectory + @"\FileB.txt"))
             {
-                if (line == string.Empty)
-                    continue;
-                string[] words = line.Split(',');
-                listOfActivities.Add(new HomeActivity(words[0], int.Parse(words[1]), words[2]));
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line == string.Empty)
+                    {
+                        continue;
+                    }    
+                    string[] words = line.Split(',');
+                    listOfActivities.Add(new HomeActivity(words[(int)ActivityData.Name], int.Parse(words[(int)ActivityData.Duration]), words[(int)ActivityData.WeekDay]));
+                }
+                foreach (var item in listOfActivities)
+                {
+                    Debug.WriteLine($"{item.Name}, {item.Duration}, {item.WeekDay}");
+                }
+                file.Close();
             }
-            foreach (var item in listOfActivities)
+            else
             {
-                Debug.WriteLine($"{item.Name}, {item.Duration}, {item.WeekDay}");
+                Debug.WriteLine("Specified file does not exist");
             }
-            file.Close();
 
             // re-writing to FileB in Json format
             string serializedB = JsonConvert.SerializeObject(listOfActivities, Formatting.Indented);
 
             if (IsValidJson(serializedB))
-                File.WriteAllText(@"C:\Users\obartkiv\source\repos\HelloWorld\FileB.txt", JsonConvert.SerializeObject(listOfActivities));
+                File.WriteAllText(testDirectory + @"\FileB.txt", JsonConvert.SerializeObject(listOfActivities));
         }
+
 
         private static bool IsValidJson(string strInput)
         {

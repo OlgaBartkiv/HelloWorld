@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HelloWorld.Models
 {
-    public class HomeActivity
+    public class HomeActivity : JsonModel
     {
         [JsonProperty("name")]
         public string Name { get; set; }
