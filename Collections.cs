@@ -246,29 +246,28 @@ namespace HelloWorld
             return $"{politician.Id}, {politician.FirstName}, {politician.LastName}, {politician.Age}, {politician.Position}";
         }
 
-        public void JsonForPolitician()
+        public void PoliticianToJsonAndBack()
         {
-            var PoliticianSalary = new List<int>() { 100, 500, 1000, 10000 };
-            string[] politicianHobby = { "box", "comedy", "tennis", "sauna" };
-            List<string> PoliticianWife = new List<string>() { "Hillary", "Olena", "Carrie", " " };
+            Politician president = new Politician(25, "Barack", "Obama", 61, "Ex-President");
+            president.Hobbies = new List<string> { };
+            president.Hobbies.Add("tennis");
+            president.Hobbies.Add("gardening");
+            president.Hobbies.Add("poker");
+            president.Pets = new List<string> { };
+            president.Pets.Add("dog");
+            president.Pets.Add("cat");
+            president.Pets.Add("rabbit");
+            president.Salary = new List<int> { };
+            president.Salary.Add(100);
+            president.Salary.Add(500);
+            president.Salary.Add(1000);
 
-            // serialize/deserialize List<int>
-            var serializedSalary = JsonConvert.SerializeObject(PoliticianSalary);
-            Debug.WriteLine(serializedSalary);
-            var deserializedSalary = JsonConvert.DeserializeObject(serializedSalary);
-            Debug.WriteLine(deserializedSalary);
+            var json = JsonConvert.SerializeObject(president, Formatting.Indented);
+            Debug.WriteLine(json);
 
-            // serialize/deserialize string array
-            string serializedHobby = JsonConvert.SerializeObject(politicianHobby);
-            Debug.WriteLine(serializedHobby);
-            var deserializedHobby = JsonConvert.DeserializeObject(serializedHobby);
-            Debug.WriteLine(deserializedHobby);
-
-            // serialize/deserialize List<string>
-            string serializedWife = JsonConvert.SerializeObject(PoliticianWife);
-            Debug.WriteLine(serializedWife);
-            var deserializedWife = JsonConvert.DeserializeObject(serializedWife);
-            Debug.WriteLine(deserializedWife);
+            var deserializedJson = JsonConvert.DeserializeObject<Politician>(json);
+            Debug.WriteLine(deserializedJson);
+            Debug.WriteLine($"{president.Id}, {president.FirstName}, {president.LastName}, {president.Age}, {president.Position}");
 
         }
 

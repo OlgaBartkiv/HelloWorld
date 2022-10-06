@@ -78,16 +78,16 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
 
-            //Collections collections = new Collections();
-            //collections.JsonForPolitician();
-            JsonCases jsonCases = new JsonCases();
+            Collections collections = new Collections();
+            collections.PoliticianToJsonAndBack();
+            //JsonCases jsonCases = new JsonCases();
             //jsonCases.AddJsonProperty();
             //jsonCases.AddRequiredProperties();
             //jsonCases.DefaultAndDisallowNullNotSpecified();
             //jsonCases.RequiredAlwaysNotSpecified();
             //jsonCases.DisallowNullIsNull();
             //jsonCases.DeserializeStringWhereIntExpected();
-            jsonCases.PoliticianToJsonAndBack();
+            
             
            
 
