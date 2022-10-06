@@ -22,6 +22,15 @@ namespace HelloWorld.Models
         [JsonProperty("position")]
         public string Position { get; set; }
 
+        [JsonProperty("hobbies")]
+        public List<string> Hobbies { get; set; }
+
+        [JsonProperty("pets")]
+        public List<string> Pets { get; set; }
+
+        [JsonProperty("salary")]
+        public List<int> Salary { get; set; }
+
         public Politician() { }
 
         public Politician (int Id, string FirstName, string LastName, int Age, string Position)
