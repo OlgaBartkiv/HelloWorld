@@ -1,4 +1,5 @@
-﻿using HelloWorld.Models;
+﻿using HelloWorld.Helpers;
+using HelloWorld.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,19 +10,24 @@ namespace HelloWorld
 {
     public class ExceptionsCases
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        public LoggerWrapper log;
+
+        public ExceptionsCases()
+        {
+            log = new LoggerWrapper(log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType));
+        }
 
         public void DivideInteger(int x, int y)
         {
            try
             {
-                log.Info(String.Format("Attempting to divide {0} by {1}", x, y));
+                log.Info($"Attempting to divide {x} by {y}");
                 Debug.WriteLine(x / y);
             }
             catch (DivideByZeroException d)
             {
                 Debug.WriteLine($"Division of {x} by zero");
-                log.Error(String.Format("Exception is thrown: {0}", d));
+                log.Error($"Exception is thrown: {d}");
                 throw new Exception("Cannot divide by zero!");
             }
 
@@ -31,29 +37,29 @@ namespace HelloWorld
         {
             try
             {
-                log.Info(String.Format("Attempting to divide {0} by {1}", x, y));
+                log.Info($"Attempting to divide {x} by {y}");
                 Debug.WriteLine(int.Parse(x) / int.Parse(y));
             }
             catch (OverflowException e)
             {
                 Debug.WriteLine($"An Exception has occured: {e}");
-                log.Warn(String.Format("Exception is caught: {0}", e));
+                log.Warn($"Exception is caught: {e}");
             }
             catch (DivideByZeroException e)
             {
                 Debug.WriteLine($"An Exception has occured: {e}");
-                log.Error(String.Format("Exception is thrown: {0}", e));
+                log.Error($"Exception is thrown: {e}");
                 throw e.InnerException;
             }
             catch (FormatException e)
             {
                 Debug.WriteLine($"An Exception has occured: {e}");
-                log.Warn(String.Format("Exception is caught: {0}", e));
+                log.Warn($"Exception is caught: {e}");
             }
-            catch (SystemException e)
+            catch (Exception e)
             {
                 Debug.WriteLine($"An Exception has occured: {e}");
-                log.Warn(String.Format("Exception is caught: {0}", e));
+                log.Warn($"Exception is caught: {e}");
             }
         }
 
@@ -61,7 +67,7 @@ namespace HelloWorld
         {
             try
             {
-                log.Info(String.Format("Attempting to divide {0} by {1}", x, y));
+                log.Info($"Attempting to divide {x} by {y}");
                 Debug.WriteLine(x / int.Parse(y));
             }
             catch (Exception e)
@@ -69,7 +75,7 @@ namespace HelloWorld
                 if (e is FormatException || e is DivideByZeroException || e is OverflowException)
                 {
                     Debug.WriteLine($"An Exception has occured: {e}");
-                    log.Error(String.Format("Exception is thrown: {0}", e));
+                    log.Error($"Exception is thrown: {e}");
                     return;
                 }
                 throw new SystemException($"System Exception is thrown: {e.InnerException}, {e.Message}");
@@ -80,24 +86,24 @@ namespace HelloWorld
         {
             try
             {
-                log.Info(String.Format("Attempting to divide {0} by {1}", x, y));
+                log.Info($"Attempting to divide {x} by {y}");
                 Debug.WriteLine(int.Parse(x) / int.Parse(y));
             }
-            catch (SystemException ex)
+            catch (Exception ex)
             {
                 switch (ex)
                 {
                     case FormatException f:
                         Debug.WriteLine($"An Exception has occured: {f}");
-                        log.Warn(String.Format("Exception is caught: {0}", f));
+                        log.Warn($"Exception is caught: {f}");
                         break;
                     case DivideByZeroException d:
                         Debug.WriteLine($"An Exception has occured: {d}");
-                        log.Warn(String.Format("Exception is caught: {0}", d));
+                        log.Warn($"Exception is caught: {d}");
                         break;
                     case OverflowException o:
                         Debug.WriteLine($"An Exception has occured: {o}");
-                        log.Warn(String.Format("Exception is caught: {0}", o));
+                        log.Warn($"Exception is caught: {o}");
                         break;
                 }
             }
@@ -108,7 +114,7 @@ namespace HelloWorld
         {
             try
             {
-                log.Info(String.Format("Attempting to divide {0} by {1}", x, y));
+                log.Info($"Attempting to divide {x} by {y}");
                 Debug.WriteLine(int.Parse(x) / int.Parse(y));
             }
             catch (SystemException ex)
@@ -121,7 +127,7 @@ namespace HelloWorld
                     _ => "Unknown Exception!"
                 };
                 Debug.WriteLine(str);
-                log.Warn(String.Format("Exception is caught: {0}", ex));
+                log.Warn($"Exception is caught: {ex}");
 
             }
         }
@@ -135,14 +141,14 @@ namespace HelloWorld
 
             try
             {
-                log.Info(String.Format("Looking for pet with weight = {0}", x));
+                log.Info($"Looking for pet with weight = {x}");
                 Pet found = pets.Find(item => item.Weight == x);
                 Debug.WriteLine($"{ found.Type}, { found.Alias}");
             }
-            catch (SystemException n)
+            catch (NullReferenceException n)
             {
                 Debug.WriteLine($"An Exception has occured: {n}");
-                log.Error(String.Format("Exception is thrown: {0}", n));
+                log.Error($"Exception is thrown: {n}");
                 throw new Exception($"The given item was not found");
             }
 
@@ -155,35 +161,34 @@ namespace HelloWorld
 
             try
             {
-                log.Info(String.Format("Creating a file {0}", path));
-                FileStream fs = File.Create(path);
-                fs.Close();
-                log.Info(String.Format("Writing the next message in the file : {0}", message));
-                File.WriteAllText(path, message);
-
                 if (path.IndexOfAny(Path.GetInvalidFileNameChars()) < 0)
                 {
-                    log.Warn(String.Format("Invalid file name"));
+                    log.Warn("Invalid file name");
                     Debug.WriteLine("File name contains forbidden characters");
                 }
                 else
                 {
-                    Debug.WriteLine(File.Exists(path) ? "File exists." : "File does not exist.");
+                    log.Info($"Creating a file {path}");
+                    FileStream fs = File.Create(path);
+                    fs.Close();
+                    log.Info($"Writing the next message in the file : {message}");
+                    File.WriteAllText(path, message);
                 }
+                Debug.WriteLine(File.Exists(path) ? "File exists." : "File does not exist.");
             }
             catch (ArgumentException a) 
             {
-                log.Warn(String.Format("Exception is caught: {0}", a));
+                log.Warn($"Exception is caught: {a}");
             }
             catch (NotSupportedException n) 
             {
-                log.Warn(String.Format("Exception is caught: {0}", n));
+                log.Warn($"Exception is caught: {n}");
             }
             finally
             {
                 if (File.Exists(path))
                 {
-                    log.Info(String.Format("Deleting the file {0}", path));
+                    log.Info($"Deleting the file {path}");
                     File.Delete(path);
                 }
             }
@@ -192,10 +197,10 @@ namespace HelloWorld
         public void DifferentLogLevels()
         {
             var politician1 = new Politician(8, "Donald", "Trump", 60, "Ex-President");
-            // logging different log levels
-            log.Info(String.Format("Politician1: {0}", politician1));
-            log.Warn(String.Format("Warning accrued at {0}", DateTime.Now));
-            log.Error(String.Format("Error accrued at {0}", DateTime.Now));
+            //logging different log levels
+            log.Info($"Politician1: {politician1.Id}, {politician1.FirstName}, {politician1.LastName}, {politician1.Age}, {politician1.Position}");
+            log.Warn($"Warning accrued at {DateTime.Now}");
+            log.Error($"Error accrued at {DateTime.Now}");
         }
 
     }
