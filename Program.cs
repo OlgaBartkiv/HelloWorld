@@ -81,10 +81,11 @@ namespace HelloWorld
 
             FileOperationsCases fileOperationsCases = new FileOperationsCases();
             HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
-            Debug.WriteLine(JsonDeserializationService.DeserializeJson(myHomeActivity));
+            string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
             Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
-            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
-            //fileOperationsCases.ReadingFromFile();
+            fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            fileOperationsCases.ReadingFromFile();
 
         }
     }

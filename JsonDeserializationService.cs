@@ -8,11 +8,16 @@ namespace HelloWorld
 {
     public static class JsonDeserializationService
     {
-        public  static string DeserializeJson<T>(T customObject) where T : JsonModel
+        public  static T DeserializeJson<T>(this string jsonString) where T : JsonModel
         {
-            var myString = JsonConvert.SerializeObject(customObject, Formatting.Indented);
-            var deserializedObject = JsonConvert.DeserializeObject<T>(myString);
-            return deserializedObject.ToString();
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(jsonString);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException($"There was an error during object serialization: {ex.InnerException}");
+            }
         }
     }
 }
