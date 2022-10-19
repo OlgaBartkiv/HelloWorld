@@ -135,6 +135,23 @@ namespace HelloWorld
             Debug.WriteLine(validParentheses.Valid(input1));
             object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             validParentheses.ValidArray(array);
+
+            AeroPress aeroPress = new AeroPress();
+            aeroPress.BrewCoffee();
+            //aeroPress.GrindCoffee();// gives error since the method is not visible from AeroPress class
+            ((ICoffeeMaker)aeroPress).GrindCoffee(); // works as expected
+            //aeroPress.FoamMilk(); // gives error since the method is not visible from AeroPress class
+            ((ICoffeeMaker)aeroPress).FoamMilk(); // works as expected
+            DelonghiMagnifica delonghiMagnifica = new DelonghiMagnifica();
+            delonghiMagnifica.BrewCoffee();
+            delonghiMagnifica.FoamMilk();
+            //delonghiMagnifica.GrindCoffee(); // gives error since the method is not visible from AeroPress class
+            ((ICoffeeMaker)delonghiMagnifica).GrindCoffee(); // works as expected
+            BrevilleBarista brevilleBarista = new BrevilleBarista();
+            brevilleBarista.BrewCoffee();
+            brevilleBarista.GrindCoffee();
+            brevilleBarista.FoamMilk();
+
         }
     }
 }
