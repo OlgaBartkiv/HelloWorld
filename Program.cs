@@ -200,6 +200,13 @@ namespace HelloWorld
             //creating new object and calling method of class using class object
             CarClass dreamCar = new CarClass();
             dreamCar.CarDetails("Range Rover", 1000);
+
+            RegexCases regexCases = new RegexCases();
+            regexCases.ExtractDigitsFromText();
+            regexCases.ExtractLettersFromText();
+            regexCases.ExtractTextAfterDefinedSymbol();
+            regexCases.ExtractIPAddress();
+            regexCases.CreateFileAndExtractIPAddress();
         }
     }
 }
