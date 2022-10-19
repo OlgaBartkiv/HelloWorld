@@ -48,20 +48,20 @@ namespace HelloWorld
             };
 
             DairyFood<Drink> dairyDrink = new DairyFood<Drink>();
-            string result1 = dairyDrink.DairyFree(drink);
-            Debug.WriteLine(result1);
+            string result = dairyDrink.DairyFree(drink);
+            Debug.WriteLine(result);
 
             DairyFood<Soup> dairySoup = new DairyFood<Soup>();
-            string result2 = dairySoup.DairyFree(soup);
-            Debug.WriteLine(result2);
+            result = dairySoup.DairyFree(soup);
+            Debug.WriteLine(result);
 
             DairyFood<MainCourse> dairyMainCourse = new DairyFood<MainCourse>();
-            string result3 = dairyMainCourse.DairyFree(mainCourse);
-            Debug.WriteLine(result3);
+            result = dairyMainCourse.DairyFree(mainCourse);
+            Debug.WriteLine(result);
 
             DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
-            string result4 = dairyDessert.DairyFree(dessert);
-            Debug.WriteLine(result4);
+            result = dairyDessert.DairyFree(dessert);
+            Debug.WriteLine(result);
 
             /// 'new' constraint implementation
             Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
