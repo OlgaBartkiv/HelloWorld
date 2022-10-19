@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -90,6 +91,15 @@ namespace HelloWorld
             //stringCases.ConvertingCharToUppercase();
             //stringCases.ConvertStringToUppercase();
             //stringCases.ParseValuesFromString();
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
 
             //BasicVariables basicVariables = new BasicVariables();
             //basicVariables.CompareUnassignedValues();
@@ -158,6 +168,37 @@ namespace HelloWorld
             exceptionsCases.FindItemInCollection(4);
             exceptionsCases.CreateFile();
             exceptionsCases.DifferentLogLevels();
+            //conditionalMethods.DefineAge();
+
+            //Collections collections = new Collections();
+            //collections.ListCollectionMethods();
+            //collections.LinkedListCollectionMethods();
+            //collections.HashSetCollectionMethods();
+            //collections.HashMapCollectionMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
+            //collections.PoliticiansSortedListMethods();
+            //ValidParentheses validParentheses = new ValidParentheses();
+            //string input1 = "(3+5)*4/7+(7-3))";
+            //Debug.WriteLine(validParentheses.Valid(input1));
+            //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
+            //validParentheses.ValidArray(array);
+
+            Collections collections = new Collections();
+            collections.PoliticianToJsonAndBack();
+            //JsonCases jsonCases = new JsonCases();
+            //jsonCases.AddJsonProperty();
+            //jsonCases.AddRequiredProperties();
+            //jsonCases.DefaultAndDisallowNullNotSpecified();
+            //jsonCases.RequiredAlwaysNotSpecified();
+            //jsonCases.DisallowNullIsNull();
+            //jsonCases.DeserializeStringWhereIntExpected();
+            
+            
+           
+
+
+
 
         }
     }
