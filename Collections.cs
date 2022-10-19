@@ -11,7 +11,7 @@ namespace HelloWorld
 {
     public class Collections
     {
-        
+
         public void ListCollectionMethods()
         {
             List<string> Countries = new List<string>() { "Ukraine", "Poland", "Lithuania", "Italy" };
@@ -122,9 +122,19 @@ namespace HelloWorld
         {
             int[] myArray = { 1, 2, 3, 4, 5, 5, 15, 3, 7, 8, 5, 2, 9, 5, 1, 11, 12, 14, 5, 2 };
 
-            var duplicates = myArray.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => new { Item = y.Key, Count = y.Count() }).ToList();
-
-            Debug.WriteLine(String.Join("\n", duplicates));
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < myArray.Length; j++)
+                {
+                    if (myArray[i] == myArray[j])
+                    {
+                        count += 1;
+                    }
+                }
+                if (count != 1)
+                    Debug.WriteLine(myArray[i] + " repeats " + count + " times");
+            }
         }
 
         public void PetsListMethods()
@@ -180,14 +190,11 @@ namespace HelloWorld
 
             // search pet by Type
             string petToFind = "Cat";
-            List<Pet> results = pets.FindAll(
-            delegate (Pet pt)
+            List<Pet> foundPets = pets.FindAll(item => item.Type == petToFind);
+            foreach (Pet pet in foundPets)
             {
-                return pt.Type == petToFind;
+                Debug.WriteLine($"Found: {pet.Type}, {pet.Alias}, {pet.Weight}");
             }
-            ).ToList();
-            Debug.WriteLine("Found all Cats:");
-            Debug.WriteLine(String.Join(Environment.NewLine, results));
         }
 
         public void PoliticiansSortedListMethods()
@@ -319,5 +326,8 @@ namespace HelloWorld
                 Debug.WriteLine(Valid(item.ToString()));
             }
         }
+
+        
     }
+    
 }
