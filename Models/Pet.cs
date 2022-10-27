@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,15 @@ namespace HelloWorld.Models
 {
      public class Pet
     {
-        public string Type;
-        public string Alias;
-        public float Weight;
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("alias")]
+        public string Alias { get; set; }
+
+        [JsonProperty("weight")]
+        public float Weight { get; set; }
+        public Pet() { }
 
         public Pet (string Type, string Alias, float Weight)
         {
@@ -21,6 +28,7 @@ namespace HelloWorld.Models
             return "[" + Type + "," + Alias + "," + Weight + "]";
         }
     }
+
 
 
 
