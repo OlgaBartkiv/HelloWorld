@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using HelloWorld.Models;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
@@ -82,6 +84,15 @@ namespace HelloWorld
             stringCases.ConvertingCharToUppercase();
             stringCases.ConvertStringToUppercase();
             stringCases.ParseValuesFromString();
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
             //StringCases stringCases = new StringCases();
             //stringCases.ParseStringToJson();
             //stringCases.ConcatenateStrings();
@@ -193,35 +204,29 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
             //conditionalMethods.DefineAge();
+            //conditionalMethods.DefineAge();
 
-            Collections collections = new Collections();
-            collections.PoliticianToJsonAndBack();
-            //JsonCases jsonCases = new JsonCases();
-            //jsonCases.AddJsonProperty();
-            //jsonCases.AddRequiredProperties();
-            //jsonCases.DefaultAndDisallowNullNotSpecified();
-            //jsonCases.RequiredAlwaysNotSpecified();
-            //jsonCases.DisallowNullIsNull();
-            //jsonCases.DeserializeStringWhereIntExpected();
-            
-            
-           
-
-
-
-
+            //Collections collections = new Collections();
             //collections.ListCollectionMethods();
             //collections.LinkedListCollectionMethods();
             //collections.HashSetCollectionMethods();
             //collections.HashMapCollectionMethods();
-            collections.IdentifyUniqueArrayElements();
-            collections.PetsListMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
             //collections.PoliticiansSortedListMethods();
             //ValidParentheses validParentheses = new ValidParentheses();
             //string input1 = "(3+5)*4/7+(7-3))";
             //Debug.WriteLine(validParentheses.Valid(input1));
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
+
+            FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            fileOperationsCases.ReadingFromFile();
 
         }
     }
