@@ -2,11 +2,8 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics;
 using System.Linq;
-using System.Collections.Generic;
-using System.Diagnostics;
+
 
 namespace HelloWorld
 {
@@ -16,72 +13,72 @@ namespace HelloWorld
         {
             Console.WriteLine("Hello World!");
 
-            Drink drink = new Drink()
-            {
-                Ingredients = new List<string>
-                {
-                    "coffee",
-                    "milk",
-                    "juice"
-                }
-            };
-            Soup soup = new Soup
-            {
-                Ingredients = new List<string>
-                {
-                    "broccoli",
-                    "carrot",
-                    "sour cream"
-                }
-            };
-            MainCourse mainCourse = new MainCourse
-            {
-                Ingredients = new List<string>
-                {
-                    "cheese",
-                    "salmon",
-                    "veel"
-                }
-            };
-            Dessert dessert = new Dessert
-            {
-                Ingredients = new List<string>
-                {
-                    "chocolate",
-                    "cream",
-                    "coconut"
-                }
-            };
+            //Drink drink = new Drink()
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "coffee",
+            //        "milk",
+            //        "juice"
+            //    }
+            //};
+            //Soup soup = new Soup
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "broccoli",
+            //        "carrot",
+            //        "sour cream"
+            //    }
+            //};
+            //MainCourse mainCourse = new MainCourse
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "cheese",
+            //        "salmon",
+            //        "veel"
+            //    }
+            //};
+            //Dessert dessert = new Dessert
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "chocolate",
+            //        "cream",
+            //        "coconut"
+            //    }
+            //};
 
-            DairyFood<Drink> dairyDrink = new DairyFood<Drink>();
-            string result = dairyDrink.DairyFree(drink);
-            Debug.WriteLine(result);
+            //DairyFood<Drink> dairyDrink = new DairyFood<Drink>();
+            //string result = dairyDrink.DairyFree(drink);
+            //Debug.WriteLine(result);
 
-            DairyFood<Soup> dairySoup = new DairyFood<Soup>();
-            result = dairySoup.DairyFree(soup);
-            Debug.WriteLine(result);
+            //DairyFood<Soup> dairySoup = new DairyFood<Soup>();
+            //result = dairySoup.DairyFree(soup);
+            //Debug.WriteLine(result);
 
-            DairyFood<MainCourse> dairyMainCourse = new DairyFood<MainCourse>();
-            result = dairyMainCourse.DairyFree(mainCourse);
-            Debug.WriteLine(result);
+            //DairyFood<MainCourse> dairyMainCourse = new DairyFood<MainCourse>();
+            //result = dairyMainCourse.DairyFree(mainCourse);
+            //Debug.WriteLine(result);
 
-            DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
-            result = dairyDessert.DairyFree(dessert);
-            Debug.WriteLine(result);
+            //DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
+            //result = dairyDessert.DairyFree(dessert);
+            //Debug.WriteLine(result);
 
-            /// 'new' constraint implementation
-            Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
-            /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
+            ///// 'new' constraint implementation
+            //Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
+            ///*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
-            StringCases stringCases = new StringCases();
-            stringCases.ParseStringToJson();
-            stringCases.ConcatenateStrings();
-            stringCases.TrimString();
-            stringCases.SplitStringAndPrintSeparate();
-            stringCases.SplitStringAndCleanEmptySpaces();
-            stringCases.ConvertingCharToUppercase();
-            stringCases.ConvertStringToUppercase();
-            stringCases.ParseValuesFromString();
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
             //StringCases stringCases = new StringCases();
             //stringCases.ParseStringToJson();
             //stringCases.ConcatenateStrings();
@@ -168,15 +165,15 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
 
-            ExceptionsCases exceptionsCases = new ExceptionsCases();
-            exceptionsCases.DivideInteger(55, 0);
-            exceptionsCases.DivideInteger("44", "0");
-            exceptionsCases.DivideInteger(12, "0");
-            exceptionsCases.DivideIntegerWithSwitch("33", "0");
-            exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
-            exceptionsCases.FindItemInCollection(4);
-            exceptionsCases.CreateFile();
-            exceptionsCases.DifferentLogLevels();
+            //ExceptionsCases exceptionsCases = new ExceptionsCases();
+            //exceptionsCases.DivideInteger(55, 0);
+            //exceptionsCases.DivideInteger("44", "0");
+            //exceptionsCases.DivideInteger(12, "0");
+            //exceptionsCases.DivideIntegerWithSwitch("33", "0");
+            //exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
+            //exceptionsCases.FindItemInCollection(4);
+            //exceptionsCases.CreateFile();
+            //exceptionsCases.DifferentLogLevels();
             //conditionalMethods.DefineAge();
 
             //Collections collections = new Collections();
@@ -194,8 +191,8 @@ namespace HelloWorld
             //validParentheses.ValidArray(array);
             //conditionalMethods.DefineAge();
 
-            Collections collections = new Collections();
-            collections.PoliticianToJsonAndBack();
+            //Collections collections = new Collections();
+            //collections.PoliticianToJsonAndBack();
             //JsonCases jsonCases = new JsonCases();
             //jsonCases.AddJsonProperty();
             //jsonCases.AddRequiredProperties();
@@ -203,19 +200,13 @@ namespace HelloWorld
             //jsonCases.RequiredAlwaysNotSpecified();
             //jsonCases.DisallowNullIsNull();
             //jsonCases.DeserializeStringWhereIntExpected();
-            
-            
-           
-
-
-
 
             //collections.ListCollectionMethods();
             //collections.LinkedListCollectionMethods();
             //collections.HashSetCollectionMethods();
-            //collections.HashMapCollectionMethods();
-            collections.IdentifyUniqueArrayElements();
-            collections.PetsListMethods();
+            ////collections.HashMapCollectionMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
             //collections.PoliticiansSortedListMethods();
             //ValidParentheses validParentheses = new ValidParentheses();
             //string input1 = "(3+5)*4/7+(7-3))";
@@ -223,6 +214,12 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
 
+
+            Dictionary<int, string> Flowers = new Dictionary<int, string>();// creating a new Dictionary
+            Flowers.Add(1, "Rose");// adding first element to Dictionary
+            Flowers.Add(2, "Camomile");// adding second element to Dictionary
+            Flowers.Add(3, "Poppy");// adding third element to Dictionary
+            var result = MethodsSignatureCases.SearchDictionaryByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3);
         }
     }
 }
