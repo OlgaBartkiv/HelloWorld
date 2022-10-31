@@ -7,7 +7,7 @@ namespace HelloWorld
     /// <summary>
     /// class Politician defines type of object
     /// </summary>
-    public class Politician
+    public class PoliticianPerson
     {
         public int Id;
         public string FirstName;
@@ -21,7 +21,7 @@ namespace HelloWorld
         /// <param name="FirstName"></param>
         /// <param name="LastName"></param>
         /// <param name="Position"></param>
-        public Politician(int Id, string FirstName, string LastName, string Position)
+        public PoliticianPerson(int Id, string FirstName, string LastName, string Position)
         {
             this.Id = Id;
             this.FirstName = FirstName;
@@ -32,7 +32,7 @@ namespace HelloWorld
         public void AddPolitician()
         {
             //new Politician object/instance is created based on Politician class
-            Politician politician1 = new Politician(4, "Bill", "Clinton", "Ex-President");
+            PoliticianPerson politician1 = new PoliticianPerson(4, "Bill", "Clinton", "Ex-President");
         }
     }
 }

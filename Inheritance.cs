@@ -32,13 +32,13 @@ namespace HelloWorld
         }
     }
 
-    public class Animal
+    public class MyAnimal
     {
         public string Alias;
         public int Weight;
         public int Age;
 
-        public Animal(string alias, int weight, int age)
+        public MyAnimal(string alias, int weight, int age)
         {
             Alias = alias;
             Weight = weight;
@@ -77,7 +77,7 @@ namespace HelloWorld
         }
     }
 
-    public class Dog : Animal
+    public class Dog : MyAnimal
     {
         public Dog(string alias, int weight, int age) : base(alias, weight, age)
         {
@@ -109,9 +109,9 @@ namespace HelloWorld
 
     }
 
-    public class Cat : Animal
+    public class Kitten : MyAnimal
     {
-        public Cat(string alias, int weight, int age) : base(alias, weight, age)
+        public Kitten(string alias, int weight, int age) : base(alias, weight, age)
         {
             Debug.WriteLine("I am a cat :)");
         }
