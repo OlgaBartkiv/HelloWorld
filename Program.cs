@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
 using HelloWorld.Models;
-using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics;
-using System.Linq;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace HelloWorld
 {
