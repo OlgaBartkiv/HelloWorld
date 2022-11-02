@@ -219,7 +219,29 @@ namespace HelloWorld
             Flowers.Add(1, "Rose");// adding first element to Dictionary
             Flowers.Add(2, "Camomile");// adding second element to Dictionary
             Flowers.Add(3, "Poppy");// adding third element to Dictionary
-            var result = MethodsSignatureCases.SearchDictionaryByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3);
+            Debug.WriteLine(MethodsSignatureCases.SearchByKeyFirstOption(3, Flowers));// searching value by key using First method
+            Debug.WriteLine(MethodsSignatureCases.SearchByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3));// searching value by key using Second method
+
+            Flowers.Add(4, "Tulip");// adding fourth element to Dictionary
+            Flowers.Add(5, "Jasmine");// adding fifth element to Dictionary
+            Flowers.Remove(1);// deleting element with a specified key
+            Flowers.Remove(4);// deleting element with a specified key
+            MethodsSignatureCases.AddNewOrUpdateExisting(Flowers, 5, "Sunflower");// adding new element or replacing if specified key already exists
+            MethodsSignatureCases.DeleteByKey<Dictionary<int, string>, int, string>(Flowers, 2);// deleting element with a specified key
+
+            var listToAdd = new List<KeyValuePair<int, string>>() // creating a list of key-value pairs
+            {
+                new KeyValuePair<int, string>(6, "Daisy"),
+                new KeyValuePair<int, string>(7, "Iris")
+            };
+            MethodsSignatureCases.AddRange(Flowers, listToAdd); // adding list of key-value pairs to Dictionary
+
+            foreach (KeyValuePair<int, string> pair in Flowers)
+            {
+                Debug.WriteLine(pair.Key, pair.Value);
+            }
+ 
+
         }
     }
 }
