@@ -26,8 +26,8 @@ namespace HelloWorld.Services
                     {
                         GiveAward(ref employee.IsAwarded);
                         log.Info($"Employee {employee.Position} {employee.FirstName} {employee.LastName} is awarded in {month} month");
+                        break;
                     }
-                    break;
                 }
             }
             else
@@ -41,14 +41,15 @@ namespace HelloWorld.Services
 
         public List<Employee> ShuffleList(List<Employee> list)
         {
+            var listCopy = new List<Employee>(list);
             var random = new Random();
             var newShuffledList = new List<Employee>();
-            var listcCount = list.Count;
+            var listcCount = listCopy.Count;
             for (int i = 0; i < listcCount; i++)
             {
-                var randomElementInList = random.Next(0, list.Count);
-                newShuffledList.Add(list[randomElementInList]);
-                list.Remove(list[randomElementInList]);
+                var randomElementInList = random.Next(0, listCopy.Count);
+                newShuffledList.Add(listCopy[randomElementInList]);
+                listCopy.Remove(listCopy[randomElementInList]);
             }
             return newShuffledList;
         }
