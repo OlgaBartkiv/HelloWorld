@@ -92,7 +92,7 @@ namespace HelloWorld
         }
 
         /// <summary>
-        /// Method to add multiple items to Dictionary consuming key-value pairs as params
+        /// Method to add multiple items to Dictionary consuming key-value pairs as params[]
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TKey"></typeparam>
@@ -100,9 +100,12 @@ namespace HelloWorld
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public static void AddRange<T, TKey, TValue>(Dictionary<TKey, TValue> dictionary, KeyValuePair<TKey, TValue> value)
+        public static void AddRange<TKey, TValue>(Dictionary<TKey, TValue> dictionary, params KeyValuePair<TKey, TValue>[] pairs)
         {
-            dictionary.Add(value.Key, value.Value);
+            foreach (var pair in pairs)
+            {
+                dictionary.Add(pair.Key, pair.Value);
+            }
         }
 
 

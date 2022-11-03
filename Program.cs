@@ -240,7 +240,13 @@ namespace HelloWorld
             {
                 Debug.WriteLine(pair.Key, pair.Value);
             }
- 
+
+            MethodsSignatureCases.AddRange(Flowers, new KeyValuePair<int, string>(8, "Orchid"), new KeyValuePair<int, string>(9, "Lily")); // adding several elements to Dictionary at once
+            foreach (KeyValuePair<int, string> pair in Flowers)
+            {
+                Debug.WriteLine(pair.Key, pair.Value);
+            }
+
 
         }
     }
