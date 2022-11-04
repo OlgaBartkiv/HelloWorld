@@ -12,72 +12,72 @@ namespace HelloWorld
         {
             Console.WriteLine("Hello World!");
 
-            Drink drink = new Drink()
-            {
-                Ingredients = new List<string>
-                {
-                    "coffee",
-                    "milk",
-                    "juice"
-                }
-            };
-            Soup soup = new Soup
-            {
-                Ingredients = new List<string>
-                {
-                    "broccoli",
-                    "carrot",
-                    "sour cream"
-                }
-            };
-            MainCourse mainCourse = new MainCourse
-            {
-                Ingredients = new List<string>
-                {
-                    "cheese",
-                    "salmon",
-                    "veel"
-                }
-            };
-            Dessert dessert = new Dessert
-            {
-                Ingredients = new List<string>
-                {
-                    "chocolate",
-                    "cream",
-                    "coconut"
-                }
-            };
+            //Drink drink = new Drink()
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "coffee",
+            //        "milk",
+            //        "juice"
+            //    }
+            //};
+            //Soup soup = new Soup
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "broccoli",
+            //        "carrot",
+            //        "sour cream"
+            //    }
+            //};
+            //MainCourse mainCourse = new MainCourse
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "cheese",
+            //        "salmon",
+            //        "veel"
+            //    }
+            //};
+            //Dessert dessert = new Dessert
+            //{
+            //    Ingredients = new List<string>
+            //    {
+            //        "chocolate",
+            //        "cream",
+            //        "coconut"
+            //    }
+            //};
 
-            DairyFood<Drink> dairyDrink = new DairyFood<Drink>();
-            string result = dairyDrink.DairyFree(drink);
-            Debug.WriteLine(result);
+            //DairyFood<Drink> dairyDrink = new DairyFood<Drink>();
+            //string result = dairyDrink.DairyFree(drink);
+            //Debug.WriteLine(result);
 
-            DairyFood<Soup> dairySoup = new DairyFood<Soup>();
-            result = dairySoup.DairyFree(soup);
-            Debug.WriteLine(result);
+            //DairyFood<Soup> dairySoup = new DairyFood<Soup>();
+            //result = dairySoup.DairyFree(soup);
+            //Debug.WriteLine(result);
 
-            DairyFood<MainCourse> dairyMainCourse = new DairyFood<MainCourse>();
-            result = dairyMainCourse.DairyFree(mainCourse);
-            Debug.WriteLine(result);
+            //DairyFood<MainCourse> dairyMainCourse = new DairyFood<MainCourse>();
+            //result = dairyMainCourse.DairyFree(mainCourse);
+            //Debug.WriteLine(result);
 
-            DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
-            result = dairyDessert.DairyFree(dessert);
-            Debug.WriteLine(result);
+            //DairyFood<Dessert> dairyDessert = new DairyFood<Dessert>();
+            //result = dairyDessert.DairyFree(dessert);
+            //Debug.WriteLine(result);
 
             /// 'new' constraint implementation
-            Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
+            /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
-            StringCases stringCases = new StringCases();
-            stringCases.ParseStringToJson();
-            stringCases.ConcatenateStrings();
-            stringCases.TrimString();
-            stringCases.SplitStringAndPrintSeparate();
-            stringCases.SplitStringAndCleanEmptySpaces();
-            stringCases.ConvertingCharToUppercase();
-            stringCases.ConvertStringToUppercase();
-            stringCases.ParseValuesFromString();
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
             //StringCases stringCases = new StringCases();
             //stringCases.ParseStringToJson();
             //stringCases.ConcatenateStrings();
@@ -173,15 +173,15 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
 
-            ExceptionsCases exceptionsCases = new ExceptionsCases();
-            exceptionsCases.DivideInteger(55, 0);
-            exceptionsCases.DivideInteger("44", "0");
-            exceptionsCases.DivideInteger(12, "0");
-            exceptionsCases.DivideIntegerWithSwitch("33", "0");
-            exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
-            exceptionsCases.FindItemInCollection(4);
-            exceptionsCases.CreateFile();
-            exceptionsCases.DifferentLogLevels();
+            //ExceptionsCases exceptionsCases = new ExceptionsCases();
+            //exceptionsCases.DivideInteger(55, 0);
+            //exceptionsCases.DivideInteger("44", "0");
+            //exceptionsCases.DivideInteger(12, "0");
+            //exceptionsCases.DivideIntegerWithSwitch("33", "0");
+            //exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
+            //exceptionsCases.FindItemInCollection(4);
+            //exceptionsCases.CreateFile();
+            //exceptionsCases.DifferentLogLevels();
             //conditionalMethods.DefineAge();
 
             //Collections collections = new Collections();
@@ -214,13 +214,20 @@ namespace HelloWorld
             //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
             //validParentheses.ValidArray(array);
 
-            FileOperationsCases fileOperationsCases = new FileOperationsCases();
-            HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
-            string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
-            Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
-            Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
-            fileOperationsCases.WritingJsonToFile(myHomeActivity);
-            fileOperationsCases.ReadingFromFile();
+            //FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            //Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            //Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            //fileOperationsCases.ReadingFromFile();
+
+
+            ArgumentsCases argumentsCases = new ArgumentsCases();
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderCase("COCONUT", "coconut"));// false
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
+            Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
 
         }
     }
