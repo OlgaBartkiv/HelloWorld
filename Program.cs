@@ -218,9 +218,11 @@ namespace HelloWorld
             //employeeService.Goat(5, meteorTeam);
 
 
-            TaxiDriver taxiDriver = new TaxiDriver();
-            Debug.WriteLine(taxiDriver.CompareAndStoreBiggerValue(8, 10));
-            taxiDriver.AddingHours(out int sleepHours, out int workHours, out int total);
+            TaxiDriver taxiDriver = new TaxiDriver() { SleepHours = 8 };
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.CompareAndStoreBiggerValue(ref taxiDriver.SleepHours, 6);
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.AddingHours(out int sleepHours, out int workHours, out int total);
             Debug.WriteLine($"Sleep hours = {sleepHours}, work hours = {workHours}, in total = {total} hours");
 
             Employee employee = new Employee();

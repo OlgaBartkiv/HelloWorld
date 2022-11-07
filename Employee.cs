@@ -34,7 +34,7 @@ namespace HelloWorld
         Miss
     }
 
-    public enum Level
+    public enum EmployeeLevel
     {
         Junior = 1000,
         Middle = 2000,
@@ -55,7 +55,7 @@ namespace HelloWorld
 
         public int? Salary;
 
-        public Level? Level;
+        public EmployeeLevel? Level;
 
         public int FeedbackScore;
 
@@ -98,19 +98,19 @@ namespace HelloWorld
             }
             else if (employee.Level.HasValue == false && employee.Salary.HasValue == true)
             {
-                if (employee.Salary > 3000)
+                if (employee.Salary > (int)EmployeeLevel.Senior)
                 {
-                    employee.Level = HelloWorld.Level.Senior;
+                    employee.Level = EmployeeLevel.Senior;
                     Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
                 }
-                else if (employee.Salary < 3000 && employee.Salary > 1000)
+                else if (employee.Salary < (int)EmployeeLevel.Senior && employee.Salary > (int)EmployeeLevel.Junior)
                 {
-                    employee.Level = HelloWorld.Level.Middle;
+                    employee.Level = EmployeeLevel.Middle;
                     Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
                 }
-                else if (employee.Salary < 1000)
+                else if (employee.Salary < (int)EmployeeLevel.Junior)
                 {
-                    employee.Level = HelloWorld.Level.Junior;
+                    employee.Level = EmployeeLevel.Junior;
                     Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
                 }
             }
