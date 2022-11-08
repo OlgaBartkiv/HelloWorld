@@ -22,6 +22,15 @@ namespace HelloWorld
                 sleepHours = workHours ?? sleepHours;
             }
 
+
+
+            if(workHours == null)
+            {
+                return;
+            }
+            sleepHours = (workHours > sleepHours) ? (int)workHours : sleepHours;
+
+
         }
 
         public static void AddingHours(out int sleepHours, out int workHours, out int total)

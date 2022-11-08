@@ -72,18 +72,21 @@ namespace HelloWorld
 
         public void PrintGreeting(string firstName, string lastName = "", Title? title = null)
         {
-            if (lastName != null && title.HasValue == true)
+            if (lastName != null && title.HasValue)
             {
                 Debug.WriteLine($"Hello, {title.Value} {firstName} {lastName}!");
             }
-            else if (lastName != null && title.HasValue == false)
+            else if (lastName != null)
             {
                 Debug.WriteLine($"Hello, {firstName} {lastName}!");
             }
-            else if (lastName == null && title.HasValue == false)
+            else if (title.HasValue == false)
             {
                 Debug.WriteLine($"Hello, {firstName}!");
             }
+
+
+            Debug.WriteLine($"Hello, {(title.HasValue? $"{title.Value} ": "")}{(firstName == null ? "": $"{firstName} ")}{(lastName == null ? "" : $"{lastName} ")}!");
         }
 
         public void DoOffer(Employee employee)
