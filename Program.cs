@@ -221,13 +221,16 @@ namespace HelloWorld
             Flowers.Add(3, "Poppy");// adding third element to Dictionary
             Debug.WriteLine(MethodsSignatureCases.SearchByKeyFirstOption(3, Flowers));// searching value by key using First method
             Debug.WriteLine(MethodsSignatureCases.SearchByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3));// searching value by key using Second method
+            Debug.WriteLine(Flowers.SearchByKeySecondOption<Dictionary<int, string>, int, string>(3));
 
             Flowers.Add(4, "Tulip");// adding fourth element to Dictionary
             Flowers.Add(5, "Jasmine");// adding fifth element to Dictionary
             Flowers.Remove(1);// deleting element with a specified key
             Flowers.Remove(4);// deleting element with a specified key
             MethodsSignatureCases.AddNewOrUpdateExisting(Flowers, 5, "Sunflower");// adding new element or replacing if specified key already exists
+            Flowers.AddNewOrUpdateExisting(5, "Sunflower");
             MethodsSignatureCases.DeleteByKey<Dictionary<int, string>, int, string>(Flowers, 2);// deleting element with a specified key
+            Flowers.DeleteByKey<Dictionary<int, string>, int, string>(2);
 
             var listToAdd = new List<KeyValuePair<int, string>>() // creating a list of key-value pairs
             {

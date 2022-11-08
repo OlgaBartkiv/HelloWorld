@@ -34,7 +34,7 @@ namespace HelloWorld
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static TValue SearchByKeySecondOption<T, TKey, TValue>(T dictionary, TKey key) where T: Dictionary<TKey, TValue>
+        public static TValue SearchByKeySecondOption<T, TKey, TValue>(this T dictionary, TKey key) where T: Dictionary<TKey, TValue>
         {
             log.Info($"Searching value by key {key} in {dictionary}");
             return dictionary[key];// searching value by key
@@ -49,7 +49,7 @@ namespace HelloWorld
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public static void AddNewOrUpdateExisting<T, TKey, TValue>(T dictionary, TKey key, TValue value) where T : Dictionary<TKey, TValue>
+        public static void AddNewOrUpdateExisting<T, TKey, TValue>(this T dictionary, TKey key, TValue value) where T : Dictionary<TKey, TValue>
         {
             if (dictionary.ContainsKey(key)) // if specified key already exists
             {
@@ -72,7 +72,13 @@ namespace HelloWorld
         /// <typeparam name="TValue"></typeparam>
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
-        public static void DeleteByKey<T, TKey, TValue>(T dictionary, TKey key) where T : Dictionary<TKey, TValue>
+        public static void DeleteByKey<T, TKey, TValue>(this T dictionary, TKey key) where T : Dictionary<TKey, TValue>
+        {
+            log.Info($"Deleting element with key {key}");
+            dictionary.Remove(key);// deleting element by key
+        }
+
+        public static void DeleteByKey<T, TKey, TValue>(this T dictionary, TKey key, bool doLogging) where T : Dictionary<TKey, TValue>
         {
             log.Info($"Deleting element with key {key}");
             dictionary.Remove(key);// deleting element by key
