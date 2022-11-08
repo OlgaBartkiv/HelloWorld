@@ -56,6 +56,15 @@ namespace HelloWorld
             return result;
         }
 
+        public static T ToEnum<T>(this int theInt) where T: Enum
+        {
+            if (typeof(T).IsEnumDefined(theInt))
+            {
+                return (T)(object)theInt;
+            }
+            return default;
+        }
+
         /// <summary>
         /// Extension method to convert DateTime to String culture wise
         /// </summary>
