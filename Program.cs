@@ -3,6 +3,7 @@ using HelloWorld.Models;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using HelloWorld.Services;
 
 namespace HelloWorld
 {
@@ -66,6 +67,7 @@ namespace HelloWorld
             //Debug.WriteLine(result);
 
             /// 'new' constraint implementation
+            /*Lesson<Student> studentLesson = new Lesson<Student>();*/ // No error, because Student has parameterless constructor
             /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
@@ -159,6 +161,15 @@ namespace HelloWorld
             //conditionalMethods.UsingBitwiseOperators();
             //conditionalMethods.DefineAge();
 
+            //ExceptionsCases exceptionsCases = new ExceptionsCases();
+            //exceptionsCases.DivideInteger(55, 0);
+            //exceptionsCases.DivideInteger("44", "0");
+            //exceptionsCases.DivideInteger(12, "0");
+            //exceptionsCases.DivideIntegerWithSwitch("33", "0");
+            //exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
+            //exceptionsCases.FindItemInCollection(4);
+            //exceptionsCases.CreateFile();
+            //exceptionsCases.DifferentLogLevels();
             //Collections collections = new Collections();
             //collections.ListCollectionMethods();
             //collections.LinkedListCollectionMethods();
@@ -200,20 +211,50 @@ namespace HelloWorld
             //conditionalMethods.DefineAge();
             //conditionalMethods.DefineAge();
 
-            //Collections collections = new Collections();
-            //collections.ListCollectionMethods();
-            //collections.LinkedListCollectionMethods();
-            //collections.HashSetCollectionMethods();
-            //collections.HashMapCollectionMethods();
-            //collections.IdentifyUniqueArrayElements();
-            //collections.PetsListMethods();
-            //collections.PoliticiansSortedListMethods();
-            //ValidParentheses validParentheses = new ValidParentheses();
-            //string input1 = "(3+5)*4/7+(7-3))";
-            //Debug.WriteLine(validParentheses.Valid(input1));
-            //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
-            //validParentheses.ValidArray(array);
+            //FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            //Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            //Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            //fileOperationsCases.ReadingFromFile();
 
+
+            //var dictionary1 = new Dictionary<int, Enum?> { { 1, null }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
+            //var dictionary2 = new Dictionary<int, Enum?> { {1, null },{ 2, Achievement.Special }, { 3, null }, { 4, Achievement.Complimented }, { 5, Achievement.Identified } };
+            //var dictionary3 = new Dictionary<int, Enum?> { { 1, Achievement.Awards }, { 2, Achievement.Reorganized }, { 3, Achievement.Complimented }, { 4, Achievement.Identified }, { 5, Achievement.Developed } };
+            //var dictionary4 = new Dictionary<int, Enum?> { { 1, Achievement.Developed }, { 2, null }, {3, Achievement.Reorganized }, { 4, Achievement.Identified }, { 5, null } };
+            //var dictionary5 = new Dictionary<int, Enum?> { { 1, Achievement.Complimented }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
+            //List<Employee> meteorTeam = new List<Employee>()
+            //{
+            //    new Employee() { FirstName = "Alex", LastName = "Bradbury", Position = "Developer", AchievementsByMonth = dictionary1, IsAwarded = false },
+            //    new Employee() { FirstName = "Olya", LastName = "Bartkiv", Position = "QA", AchievementsByMonth = dictionary2, IsAwarded = false},
+            //    new Employee() { FirstName = "Taras", LastName = "Onyshko", Position = "Developer", AchievementsByMonth = dictionary3, IsAwarded = true},
+            //    new Employee() { FirstName = "Davinder", LastName = "Kainth", Position = "Developer", AchievementsByMonth = dictionary4, IsAwarded = false},
+            //    new Employee() { FirstName = "Olha", LastName = "Bodnarchuk", Position = "QA", AchievementsByMonth = dictionary5, IsAwarded = false}
+            //};
+
+            //EmployeeService employeeService = new EmployeeService();
+            //employeeService.Goat(1, meteorTeam);
+            //employeeService.Goat(2, meteorTeam);
+            //employeeService.Goat(3, meteorTeam);
+            //employeeService.Goat(4, meteorTeam);
+            //employeeService.Goat(5, meteorTeam);
+
+
+            TaxiDriver taxiDriver = new TaxiDriver() { SleepHours = 8 };
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.CompareAndStoreBiggerValue(ref taxiDriver.SleepHours, 6);
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.AddingHours(out int sleepHours, out int workHours, out int total);
+            Debug.WriteLine($"Sleep hours = {sleepHours}, work hours = {workHours}, in total = {total} hours");
+
+            Employee employee = new Employee();
+            employee.PrintGreeting("Olga");
+
+            Employee newEmployee = new Employee();
+            var candidate = new Employee() { Salary = 4000, FeedbackScore = 10 };
+            newEmployee.DoOffer(candidate);
             //FileOperationsCases fileOperationsCases = new FileOperationsCases();
             //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
             //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
@@ -230,5 +271,7 @@ namespace HelloWorld
             Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
 
         }
+
+
     }
 }
