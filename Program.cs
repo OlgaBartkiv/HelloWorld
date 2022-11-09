@@ -3,9 +3,8 @@ using HelloWorld.Models;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-using HelloWorld.Services;
 using System.Linq;
-using System.Globalization;
+
 
 namespace HelloWorld
 {
@@ -73,7 +72,19 @@ namespace HelloWorld
             /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
            /* Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
+            ///// 'new' constraint implementation
+            //Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
+            ///*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
+            //StringCases stringCases = new StringCases();
+            //stringCases.ParseStringToJson();
+            //stringCases.ConcatenateStrings();
+            //stringCases.TrimString();
+            //stringCases.SplitStringAndPrintSeparate();
+            //stringCases.SplitStringAndCleanEmptySpaces();
+            //stringCases.ConvertingCharToUppercase();
+            //stringCases.ConvertStringToUppercase();
+            //stringCases.ParseValuesFromString();
             //StringCases stringCases = new StringCases();
             //stringCases.ParseStringToJson();
             //stringCases.ConcatenateStrings();
@@ -302,6 +313,65 @@ namespace HelloWorld
 
             HomeActivity newHomeActivity = new HomeActivity("Cooking", 2, "Friday");
             Debug.WriteLine(newHomeActivity.SerializeToJson(Formatting.Indented));
+
+            //Collections collections = new Collections();
+            //collections.PoliticianToJsonAndBack();
+            //JsonCases jsonCases = new JsonCases();
+            //jsonCases.AddJsonProperty();
+            //jsonCases.AddRequiredProperties();
+            //jsonCases.DefaultAndDisallowNullNotSpecified();
+            //jsonCases.RequiredAlwaysNotSpecified();
+            //jsonCases.DisallowNullIsNull();
+            //jsonCases.DeserializeStringWhereIntExpected();
+
+            //collections.ListCollectionMethods();
+            //collections.LinkedListCollectionMethods();
+            //collections.HashSetCollectionMethods();
+            ////collections.HashMapCollectionMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
+            //collections.PoliticiansSortedListMethods();
+            //ValidParentheses validParentheses = new ValidParentheses();
+            //string input1 = "(3+5)*4/7+(7-3))";
+            //Debug.WriteLine(validParentheses.Valid(input1));
+            //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
+            //validParentheses.ValidArray(array);
+
+
+            Dictionary<int, string> Flowers = new Dictionary<int, string>();// creating a new Dictionary
+            Flowers.Add(1, "Rose");// adding first element to Dictionary
+            Flowers.Add(2, "Camomile");// adding second element to Dictionary
+            Flowers.Add(3, "Poppy");// adding third element to Dictionary
+            Debug.WriteLine(MethodsSignatureCases.SearchByKeyFirstOption(3, Flowers));// searching value by key using First method
+            Debug.WriteLine(MethodsSignatureCases.SearchByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3));// searching value by key using Second method
+            Debug.WriteLine(Flowers.SearchByKeySecondOption<Dictionary<int, string>, int, string>(3));
+
+            Flowers.Add(4, "Tulip");// adding fourth element to Dictionary
+            Flowers.Add(5, "Jasmine");// adding fifth element to Dictionary
+            Flowers.Remove(1);// deleting element with a specified key
+            Flowers.Remove(4);// deleting element with a specified key
+            MethodsSignatureCases.AddNewOrUpdateExisting(Flowers, 5, "Sunflower");// adding new element or replacing if specified key already exists
+            Flowers.AddNewOrUpdateExisting(5, "Sunflower");
+            MethodsSignatureCases.DeleteByKey<Dictionary<int, string>, int, string>(Flowers, 2);// deleting element with a specified key
+            Flowers.DeleteByKey<Dictionary<int, string>, int, string>(2);
+
+            var listToAdd = new List<KeyValuePair<int, string>>() // creating a list of key-value pairs
+            {
+                new KeyValuePair<int, string>(6, "Daisy"),
+                new KeyValuePair<int, string>(7, "Iris")
+            };
+            MethodsSignatureCases.AddRange(Flowers, listToAdd); // adding list of key-value pairs to Dictionary
+
+            foreach (KeyValuePair<int, string> pair in Flowers)
+            {
+                Debug.WriteLine(pair.Key, pair.Value);
+            }
+
+            MethodsSignatureCases.AddRange(Flowers, new KeyValuePair<int, string>(8, "Orchid"), new KeyValuePair<int, string>(9, "Lily")); // adding several elements to Dictionary at once
+            foreach (KeyValuePair<int, string> pair in Flowers)
+            {
+                Debug.WriteLine(pair.Key, pair.Value);
+            }
 
 
         }
