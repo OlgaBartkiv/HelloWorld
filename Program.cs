@@ -4,6 +4,8 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using HelloWorld.Services;
+using System.Linq;
+using System.Globalization;
 
 namespace HelloWorld
 {
@@ -69,6 +71,7 @@ namespace HelloWorld
             /// 'new' constraint implementation
             /*Lesson<Student> studentLesson = new Lesson<Student>();*/ // No error, because Student has parameterless constructor
             /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
+           /* Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
             //StringCases stringCases = new StringCases();
@@ -269,6 +272,37 @@ namespace HelloWorld
             Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
             Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
             Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
+            //FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            //Debug.WriteLine(serialized);
+            //Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            //Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            //fileOperationsCases.ReadingFromFile();
+
+            ActivityData weekDay = ActivityData.WeekDay;
+            int enumInt = weekDay.GetIntValueOfEnum();
+            Debug.WriteLine(enumInt);
+
+            DateTime date = DateTime.Now;
+            var culture = CultureInfo.CreateSpecificCulture("es-ES");
+            Debug.WriteLine($"{culture} Culture, {date.DateTimeToStringCultureWise(culture)}");
+
+            DateTime today = DateTime.Now;
+            Debug.WriteLine(today.DateTimeToStringWithFormatting(StringFormatting.DateWithDashes));
+
+            string example = "45ghjkk?//23c[45z6]}$#56yu";
+            var result = example.ExtractNumeric();
+            Debug.WriteLine(result);
+
+            string alphabeticRegex = @"[0-9\s]";
+            string exampleString = "He was born on the 3rd of December 1990";
+            Debug.WriteLine(exampleString.GetSubstringFromString(alphabeticRegex));
+
+            HomeActivity newHomeActivity = new HomeActivity("Cooking", 2, "Friday");
+            Debug.WriteLine(newHomeActivity.SerializeToJson(Formatting.Indented));
+
 
         }
 
