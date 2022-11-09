@@ -196,26 +196,41 @@ namespace HelloWorld
             //fileOperationsCases.ReadingFromFile();
 
 
-            var dictionary1 = new Dictionary<int, Enum?> { { 1, null }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
-            var dictionary2 = new Dictionary<int, Enum?> { {1, null },{ 2, Achievement.Special }, { 3, null }, { 4, Achievement.Complimented }, { 5, Achievement.Identified } };
-            var dictionary3 = new Dictionary<int, Enum?> { { 1, Achievement.Awards }, { 2, Achievement.Reorganized }, { 3, Achievement.Complimented }, { 4, Achievement.Identified }, { 5, Achievement.Developed } };
-            var dictionary4 = new Dictionary<int, Enum?> { { 1, Achievement.Developed }, { 2, null }, {3, Achievement.Reorganized }, { 4, Achievement.Identified }, { 5, null } };
-            var dictionary5 = new Dictionary<int, Enum?> { { 1, Achievement.Complimented }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
-            List<Employee> meteorTeam = new List<Employee>()
-            {
-                new Employee() { FirstName = "Alex", LastName = "Bradbury", Position = "Developer", AchievementsByMonth = dictionary1, IsAwarded = false },
-                new Employee() { FirstName = "Olya", LastName = "Bartkiv", Position = "QA", AchievementsByMonth = dictionary2, IsAwarded = false},
-                new Employee() { FirstName = "Taras", LastName = "Onyshko", Position = "Developer", AchievementsByMonth = dictionary3, IsAwarded = true},
-                new Employee() { FirstName = "Davinder", LastName = "Kainth", Position = "Developer", AchievementsByMonth = dictionary4, IsAwarded = false},
-                new Employee() { FirstName = "Olha", LastName = "Bodnarchuk", Position = "QA", AchievementsByMonth = dictionary5, IsAwarded = false}
-            };
+            //var dictionary1 = new Dictionary<int, Enum?> { { 1, null }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
+            //var dictionary2 = new Dictionary<int, Enum?> { {1, null },{ 2, Achievement.Special }, { 3, null }, { 4, Achievement.Complimented }, { 5, Achievement.Identified } };
+            //var dictionary3 = new Dictionary<int, Enum?> { { 1, Achievement.Awards }, { 2, Achievement.Reorganized }, { 3, Achievement.Complimented }, { 4, Achievement.Identified }, { 5, Achievement.Developed } };
+            //var dictionary4 = new Dictionary<int, Enum?> { { 1, Achievement.Developed }, { 2, null }, {3, Achievement.Reorganized }, { 4, Achievement.Identified }, { 5, null } };
+            //var dictionary5 = new Dictionary<int, Enum?> { { 1, Achievement.Complimented }, { 2, null }, { 3, null }, { 4, null }, { 5, null } };
+            //List<Employee> meteorTeam = new List<Employee>()
+            //{
+            //    new Employee() { FirstName = "Alex", LastName = "Bradbury", Position = "Developer", AchievementsByMonth = dictionary1, IsAwarded = false },
+            //    new Employee() { FirstName = "Olya", LastName = "Bartkiv", Position = "QA", AchievementsByMonth = dictionary2, IsAwarded = false},
+            //    new Employee() { FirstName = "Taras", LastName = "Onyshko", Position = "Developer", AchievementsByMonth = dictionary3, IsAwarded = true},
+            //    new Employee() { FirstName = "Davinder", LastName = "Kainth", Position = "Developer", AchievementsByMonth = dictionary4, IsAwarded = false},
+            //    new Employee() { FirstName = "Olha", LastName = "Bodnarchuk", Position = "QA", AchievementsByMonth = dictionary5, IsAwarded = false}
+            //};
 
-            EmployeeService employeeService = new EmployeeService();
-            employeeService.Goat(1, meteorTeam);
-            employeeService.Goat(2, meteorTeam);
-            employeeService.Goat(3, meteorTeam);
-            employeeService.Goat(4, meteorTeam);
-            employeeService.Goat(5, meteorTeam);
+            //EmployeeService employeeService = new EmployeeService();
+            //employeeService.Goat(1, meteorTeam);
+            //employeeService.Goat(2, meteorTeam);
+            //employeeService.Goat(3, meteorTeam);
+            //employeeService.Goat(4, meteorTeam);
+            //employeeService.Goat(5, meteorTeam);
+
+
+            TaxiDriver taxiDriver = new TaxiDriver() { SleepHours = 8 };
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.CompareAndStoreBiggerValue(ref taxiDriver.SleepHours, 6);
+            Debug.WriteLine(taxiDriver.SleepHours);
+            TaxiDriverExtensions.AddingHours(out int sleepHours, out int workHours, out int total);
+            Debug.WriteLine($"Sleep hours = {sleepHours}, work hours = {workHours}, in total = {total} hours");
+
+            Employee employee = new Employee();
+            employee.PrintGreeting("Olga");
+
+            Employee newEmployee = new Employee();
+            var candidate = new Employee() { Salary = 4000, FeedbackScore = 10 };
+            newEmployee.DoOffer(candidate);
 
         }
 
