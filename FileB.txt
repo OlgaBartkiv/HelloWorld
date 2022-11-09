@@ -1,0 +1,4 @@
+
+Cooking, 2, Monday
+Cleaning, 3, Friday
+Gardening, 1, Tuesday
