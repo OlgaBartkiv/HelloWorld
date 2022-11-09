@@ -91,30 +91,34 @@ namespace HelloWorld
 
         public void DoOffer(Employee employee)
         {
-            if (employee.Level.HasValue == true && employee.Salary.HasValue == true)
+            bool hasLevel = employee.Level.HasValue;
+            bool hasSalary = employee.Salary.HasValue;
+            var employeeLevel = employee.Level.Value;
+
+            if (hasLevel && hasSalary)
             {
-                Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}"); 
+                Debug.WriteLine($"The offer was made for {employeeLevel} level with the salary = {employee.Salary}"); 
             }
-            else if (employee.Level.HasValue == true && employee.Salary.HasValue == false)
+            else if (hasLevel && !hasSalary)
             {
-                Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {(int)employee.Level.Value}");
+                Debug.WriteLine($"The offer was made for {employeeLevel} level with the salary = {(int)employeeLevel}");
             }
-            else if (employee.Level.HasValue == false && employee.Salary.HasValue == true)
+            else if (!hasLevel && hasSalary)
             {
                 if (employee.Salary > (int)EmployeeLevel.Senior)
                 {
                     employee.Level = EmployeeLevel.Senior;
-                    Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
+                    Debug.WriteLine($"The offer was made for {employeeLevel} level with the salary = {employee.Salary}");
                 }
                 else if (employee.Salary < (int)EmployeeLevel.Senior && employee.Salary > (int)EmployeeLevel.Junior)
                 {
                     employee.Level = EmployeeLevel.Middle;
-                    Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
+                    Debug.WriteLine($"The offer was made for {employeeLevel} level with the salary = {employee.Salary}");
                 }
                 else if (employee.Salary < (int)EmployeeLevel.Junior)
                 {
                     employee.Level = EmployeeLevel.Junior;
-                    Debug.WriteLine($"The offer was made for {employee.Level.Value} level with the salary = {employee.Salary}");
+                    Debug.WriteLine($"The offer was made for {employeeLevel} level with the salary = {employee.Salary}");
                 }
             }
                     
