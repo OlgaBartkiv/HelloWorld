@@ -68,6 +68,7 @@ namespace HelloWorld
 
             /// 'new' constraint implementation
             /*Lesson<Student> studentLesson = new Lesson<Student>();*/ // No error, because Student has parameterless constructor
+            /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
             //StringCases stringCases = new StringCases();
@@ -169,6 +170,29 @@ namespace HelloWorld
             //exceptionsCases.FindItemInCollection(4);
             //exceptionsCases.CreateFile();
             //exceptionsCases.DifferentLogLevels();
+            //Collections collections = new Collections();
+            //collections.ListCollectionMethods();
+            //collections.LinkedListCollectionMethods();
+            //collections.HashSetCollectionMethods();
+            //collections.HashMapCollectionMethods();
+            //collections.IdentifyUniqueArrayElements();
+            //collections.PetsListMethods();
+            //collections.PoliticiansSortedListMethods();
+            //ValidParentheses validParentheses = new ValidParentheses();
+            //string input1 = "(3+5)*4/7+(7-3))";
+            //Debug.WriteLine(validParentheses.Valid(input1));
+            //object[] array = new object[5] { 1, 1.1111, "Sharad", 'c', 2.79769313486232E+3 };
+            //validParentheses.ValidArray(array);
+
+            //ExceptionsCases exceptionsCases = new ExceptionsCases();
+            //exceptionsCases.DivideInteger(55, 0);
+            //exceptionsCases.DivideInteger("44", "0");
+            //exceptionsCases.DivideInteger(12, "0");
+            //exceptionsCases.DivideIntegerWithSwitch("33", "0");
+            //exceptionsCases.DivideIntegerWithSwitchPattern("77", "0");
+            //exceptionsCases.FindItemInCollection(4);
+            //exceptionsCases.CreateFile();
+            //exceptionsCases.DifferentLogLevels();
             //conditionalMethods.DefineAge();
 
             //Collections collections = new Collections();
@@ -231,6 +255,20 @@ namespace HelloWorld
             Employee newEmployee = new Employee();
             var candidate = new Employee() { Salary = 4000, FeedbackScore = 10 };
             newEmployee.DoOffer(candidate);
+            //FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            //Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            //Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            //fileOperationsCases.ReadingFromFile();
+
+
+            ArgumentsCases argumentsCases = new ArgumentsCases();
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderCase("COCONUT", "coconut"));// false
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
+            Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
+            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
 
         }
 
