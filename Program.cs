@@ -70,10 +70,10 @@ namespace HelloWorld
             /// 'new' constraint implementation
             /*Lesson<Student> studentLesson = new Lesson<Student>();*/ // No error, because Student has parameterless constructor
             /*Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
-           /* Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
+            /* Lesson<Student> studentLesson = new Lesson<Student>(); */// No error, because Student has parameterless constructor
             /*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
-            ///// 'new' constraint implementation
-            //Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
+                                                                       ///// 'new' constraint implementation
+                                                                       //Lesson<Student> studentLesson = new Lesson<Student>(); // No error, because Student has parameterless constructor
             ///*Lesson<Teacher> teacherLesson = new Lesson<Teacher>();*/ // Error, because Teacher has constructor with parameter
 
             //StringCases stringCases = new StringCases();
@@ -256,19 +256,19 @@ namespace HelloWorld
             //employeeService.Goat(5, meteorTeam);
 
 
-            TaxiDriver taxiDriver = new TaxiDriver() { SleepHours = 8 };
-            Debug.WriteLine(taxiDriver.SleepHours);
-            TaxiDriverExtensions.CompareAndStoreBiggerValue(ref taxiDriver.SleepHours, 6);
-            Debug.WriteLine(taxiDriver.SleepHours);
-            TaxiDriverExtensions.AddingHours(out int sleepHours, out int workHours, out int total);
-            Debug.WriteLine($"Sleep hours = {sleepHours}, work hours = {workHours}, in total = {total} hours");
+            //TaxiDriver taxiDriver = new TaxiDriver() { SleepHours = 8 };
+            //Debug.WriteLine(taxiDriver.SleepHours);
+            //TaxiDriverExtensions.CompareAndStoreBiggerValue(ref taxiDriver.SleepHours, 6);
+            //Debug.WriteLine(taxiDriver.SleepHours);
+            //TaxiDriverExtensions.AddingHours(out int sleepHours, out int workHours, out int total);
+            //Debug.WriteLine($"Sleep hours = {sleepHours}, work hours = {workHours}, in total = {total} hours");
 
-            Employee employee = new Employee();
-            employee.PrintGreeting("Olga");
+            //Employee employee = new Employee();
+            //employee.PrintGreeting("Olga");
 
-            Employee newEmployee = new Employee();
-            var candidate = new Employee() { Salary = 4000, FeedbackScore = 10 };
-            newEmployee.DoOffer(candidate);
+            //Employee newEmployee = new Employee();
+            //var candidate = new Employee() { Salary = 4000, FeedbackScore = 10 };
+            //newEmployee.DoOffer(candidate);
             //FileOperationsCases fileOperationsCases = new FileOperationsCases();
             //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
             //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
@@ -278,11 +278,11 @@ namespace HelloWorld
             //fileOperationsCases.ReadingFromFile();
 
 
-            ArgumentsCases argumentsCases = new ArgumentsCases();
-            Debug.WriteLine(argumentsCases.CompareStringsConsiderCase("COCONUT", "coconut"));// false
-            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
-            Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
-            Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
+            //ArgumentsCases argumentsCases = new ArgumentsCases();
+            //Debug.WriteLine(argumentsCases.CompareStringsConsiderCase("COCONUT", "coconut"));// false
+            //Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
+            //Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
+            //Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
             //FileOperationsCases fileOperationsCases = new FileOperationsCases();
             //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
             //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
@@ -292,27 +292,27 @@ namespace HelloWorld
             //fileOperationsCases.WritingJsonToFile(myHomeActivity);
             //fileOperationsCases.ReadingFromFile();
 
-            ActivityData weekDay = ActivityData.WeekDay;
-            int enumInt = weekDay.GetIntValueOfEnum();
-            Debug.WriteLine(enumInt);
+            //ActivityData weekDay = ActivityData.WeekDay;
+            //int enumInt = weekDay.GetIntValueOfEnum();
+            //Debug.WriteLine(enumInt);
 
-            DateTime date = DateTime.Now;
-            var culture = CultureInfo.CreateSpecificCulture("es-ES");
-            Debug.WriteLine($"{culture} Culture, {date.DateTimeToStringCultureWise(culture)}");
+            //DateTime date = DateTime.Now;
+            //var culture = CultureInfo.CreateSpecificCulture("es-ES");
+            //Debug.WriteLine($"{culture} Culture, {date.DateTimeToStringCultureWise(culture)}");
 
-            DateTime today = DateTime.Now;
-            Debug.WriteLine(today.DateTimeToStringWithFormatting(StringFormatting.DateWithDashes));
+            //DateTime today = DateTime.Now;
+            //Debug.WriteLine(today.DateTimeToStringWithFormatting(StringFormatting.DateWithDashes));
 
-            string example = "45ghjkk?//23c[45z6]}$#56yu";
-            var result = example.ExtractNumeric();
-            Debug.WriteLine(result);
+            //string example = "45ghjkk?//23c[45z6]}$#56yu";
+            //var result = example.ExtractNumeric();
+            //Debug.WriteLine(result);
 
-            string alphabeticRegex = @"[0-9\s]";
-            string exampleString = "He was born on the 3rd of December 1990";
-            Debug.WriteLine(exampleString.GetSubstringFromString(alphabeticRegex));
+            //string alphabeticRegex = @"[0-9\s]";
+            //string exampleString = "He was born on the 3rd of December 1990";
+            //Debug.WriteLine(exampleString.GetSubstringFromString(alphabeticRegex));
 
-            HomeActivity newHomeActivity = new HomeActivity("Cooking", 2, "Friday");
-            Debug.WriteLine(newHomeActivity.SerializeToJson(Formatting.Indented));
+            //HomeActivity newHomeActivity = new HomeActivity("Cooking", 2, "Friday");
+            //Debug.WriteLine(newHomeActivity.SerializeToJson(Formatting.Indented));
 
             //Collections collections = new Collections();
             //collections.PoliticianToJsonAndBack();
@@ -338,41 +338,54 @@ namespace HelloWorld
             //validParentheses.ValidArray(array);
 
 
-            Dictionary<int, string> Flowers = new Dictionary<int, string>();// creating a new Dictionary
-            Flowers.Add(1, "Rose");// adding first element to Dictionary
-            Flowers.Add(2, "Camomile");// adding second element to Dictionary
-            Flowers.Add(3, "Poppy");// adding third element to Dictionary
-            Debug.WriteLine(MethodsSignatureCases.SearchByKeyFirstOption(3, Flowers));// searching value by key using First method
-            Debug.WriteLine(MethodsSignatureCases.SearchByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3));// searching value by key using Second method
-            Debug.WriteLine(Flowers.SearchByKeySecondOption<Dictionary<int, string>, int, string>(3));
+            //Dictionary<int, string> Flowers = new Dictionary<int, string>();// creating a new Dictionary
+            //Flowers.Add(1, "Rose");// adding first element to Dictionary
+            //Flowers.Add(2, "Camomile");// adding second element to Dictionary
+            //Flowers.Add(3, "Poppy");// adding third element to Dictionary
+            //Debug.WriteLine(MethodsSignatureCases.SearchByKeyFirstOption(3, Flowers));// searching value by key using First method
+            //Debug.WriteLine(MethodsSignatureCases.SearchByKeySecondOption<Dictionary<int, string>, int, string>(Flowers, 3));// searching value by key using Second method
+            //Debug.WriteLine(Flowers.SearchByKeySecondOption<Dictionary<int, string>, int, string>(3));
 
-            Flowers.Add(4, "Tulip");// adding fourth element to Dictionary
-            Flowers.Add(5, "Jasmine");// adding fifth element to Dictionary
-            Flowers.Remove(1);// deleting element with a specified key
-            Flowers.Remove(4);// deleting element with a specified key
-            MethodsSignatureCases.AddNewOrUpdateExisting(Flowers, 5, "Sunflower");// adding new element or replacing if specified key already exists
-            Flowers.AddNewOrUpdateExisting(5, "Sunflower");
-            MethodsSignatureCases.DeleteByKey<Dictionary<int, string>, int, string>(Flowers, 2);// deleting element with a specified key
-            Flowers.DeleteByKey<Dictionary<int, string>, int, string>(2);
+            //Flowers.Add(4, "Tulip");// adding fourth element to Dictionary
+            //Flowers.Add(5, "Jasmine");// adding fifth element to Dictionary
+            //Flowers.Remove(1);// deleting element with a specified key
+            //Flowers.Remove(4);// deleting element with a specified key
+            //MethodsSignatureCases.AddNewOrUpdateExisting(Flowers, 5, "Sunflower");// adding new element or replacing if specified key already exists
+            //Flowers.AddNewOrUpdateExisting(5, "Sunflower");
+            //MethodsSignatureCases.DeleteByKey<Dictionary<int, string>, int, string>(Flowers, 2);// deleting element with a specified key
+            //Flowers.DeleteByKey<Dictionary<int, string>, int, string>(2);
 
-            var listToAdd = new List<KeyValuePair<int, string>>() // creating a list of key-value pairs
+            //var listToAdd = new List<KeyValuePair<int, string>>() // creating a list of key-value pairs
+            //{
+            //    new KeyValuePair<int, string>(6, "Daisy"),
+            //    new KeyValuePair<int, string>(7, "Iris")
+            //};
+            //MethodsSignatureCases.AddRange(Flowers, listToAdd); // adding list of key-value pairs to Dictionary
+
+            //foreach (KeyValuePair<int, string> pair in Flowers)
+            //{
+            //    Debug.WriteLine(pair.Key, pair.Value);
+            //}
+
+            //MethodsSignatureCases.AddRange(Flowers, new KeyValuePair<int, string>(8, "Orchid"), new KeyValuePair<int, string>(9, "Lily")); // adding several elements to Dictionary at once
+            //foreach (KeyValuePair<int, string> pair in Flowers)
+            //{
+            //    Debug.WriteLine(pair.Key, pair.Value);
+            //}
+
+            // using checked keyword
+            checked
             {
-                new KeyValuePair<int, string>(6, "Daisy"),
-                new KeyValuePair<int, string>(7, "Iris")
-            };
-            MethodsSignatureCases.AddRange(Flowers, listToAdd); // adding list of key-value pairs to Dictionary
-
-            foreach (KeyValuePair<int, string> pair in Flowers)
-            {
-                Debug.WriteLine(pair.Key, pair.Value);
+                int n = int.MaxValue;
+                Debug.WriteLine(n + 10); // output: System.OverflowException
             }
 
-            MethodsSignatureCases.AddRange(Flowers, new KeyValuePair<int, string>(8, "Orchid"), new KeyValuePair<int, string>(9, "Lily")); // adding several elements to Dictionary at once
-            foreach (KeyValuePair<int, string> pair in Flowers)
+            // using unchecked keyword
+            unchecked
             {
-                Debug.WriteLine(pair.Key, pair.Value);
+                int n = int.MaxValue;
+                Debug.WriteLine(n + 10); // No Exception// output: -2147483639
             }
-
 
         }
 
