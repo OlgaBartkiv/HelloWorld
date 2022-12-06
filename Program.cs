@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
-
+using RateSetter.WorkingDays;
 
 namespace HelloWorld
 {
@@ -387,20 +387,22 @@ namespace HelloWorld
             //    Debug.WriteLine(n + 10); // No Exception// output: -2147483639
             //}
 
-            FileOperationsAdvancedCases fileOperationsAdvancedCases = new FileOperationsAdvancedCases();
-            fileOperationsAdvancedCases.CreateFile(@"\FirstFile.txt");
-            fileOperationsAdvancedCases.WriteToFile();
-            fileOperationsAdvancedCases.ReadFile();
-            fileOperationsAdvancedCases.ViewFileInfo();
-            fileOperationsAdvancedCases.CreateFile(@"\SecondFile.txt");
-            fileOperationsAdvancedCases.CreateFile(@"\ThirdFile.txt");
-            fileOperationsAdvancedCases.CreateFile(@"\FourthFile.txt");
-            fileOperationsAdvancedCases.ListFiles();
-            fileOperationsAdvancedCases.CreateDirectory(@"Directory1");
-            fileOperationsAdvancedCases.CreateDirectory(@"Directory2");
-            fileOperationsAdvancedCases.CreateDirectory(@"Directory3");
-            fileOperationsAdvancedCases.ListDirectories();
+            //FileOperationsAdvancedCases fileOperationsAdvancedCases = new FileOperationsAdvancedCases();
+            //fileOperationsAdvancedCases.CreateFile(@"\FirstFile.txt");
+            //fileOperationsAdvancedCases.WriteToFile();
+            //fileOperationsAdvancedCases.ReadFile();
+            //fileOperationsAdvancedCases.ViewFileInfo();
+            //fileOperationsAdvancedCases.CreateFile(@"\SecondFile.txt");
+            //fileOperationsAdvancedCases.CreateFile(@"\ThirdFile.txt");
+            //fileOperationsAdvancedCases.CreateFile(@"\FourthFile.txt");
+            //fileOperationsAdvancedCases.ListFiles();
+            //fileOperationsAdvancedCases.CreateDirectory(@"Directory1");
+            //fileOperationsAdvancedCases.CreateDirectory(@"Directory2");
+            //fileOperationsAdvancedCases.CreateDirectory(@"Directory3");
+            //fileOperationsAdvancedCases.ListDirectories();
 
+            var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
+            Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
 
 
