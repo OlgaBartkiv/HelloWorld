@@ -26,13 +26,13 @@ namespace HelloWorld
         {
             string path = TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt";
 
-            if (!File.Exists(path))
+            using (var tw = new StreamWriter(path, true))
             {
-                File.WriteAllText(TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt", "This is the first line!");
-            }
-            else if (File.Exists(path))
-            {
-                using (var tw = new StreamWriter(path, true))
+                if (!File.Exists(path))
+                {
+                    File.WriteAllText(path, "This is the first line!");
+                }
+                else
                 {
                     tw.WriteLine("This is the next line!");
                 }
@@ -58,11 +58,11 @@ namespace HelloWorld
         public void ViewFileInfo()
         {
             FileInfo FileProps = new FileInfo(TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt");
-            Debug.WriteLine("File Name = " + FileProps.FullName);
-            Debug.WriteLine("Creation Time = " + FileProps.CreationTime);
-            Debug.WriteLine("Last Access Time = " + FileProps.LastAccessTime);
-            Debug.WriteLine("Last Write TIme = " + FileProps.LastWriteTime);
-            Debug.WriteLine("Size = " + FileProps.Length);
+            Debug.WriteLine(nameof(FileProps.FullName) + ": " + FileProps.FullName);
+            Debug.WriteLine(nameof(FileProps.CreationTime) + ": " + FileProps.CreationTime);
+            Debug.WriteLine(nameof(FileProps.LastAccessTime) + ": " + FileProps.LastAccessTime);
+            Debug.WriteLine(nameof(FileProps.LastWriteTime) + ": " + FileProps.LastWriteTime);
+            Debug.WriteLine(nameof(FileProps.Length) + ": " + FileProps.Length);
         }
 
         public void ListFiles()
