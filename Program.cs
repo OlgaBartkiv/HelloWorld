@@ -283,14 +283,14 @@ namespace HelloWorld
             //Debug.WriteLine(argumentsCases.CompareStringsConsiderSpaces("Good morning!", "Goodmorning!"));// false
             //Debug.WriteLine(argumentsCases.CompareDecimalsWholeValue(2.1m, 2.2m));// false
             //Debug.WriteLine(argumentsCases.CompareStringsConsiderSpacesAndCase("Happy birthday", "happy birthday", ignoreSpace: false));// true
-            //FileOperationsCases fileOperationsCases = new FileOperationsCases();
-            //HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
-            //string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
-            //Debug.WriteLine(serialized);
-            //Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
-            //Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
-            //fileOperationsCases.WritingJsonToFile(myHomeActivity);
-            //fileOperationsCases.ReadingFromFile();
+            FileOperationsCases fileOperationsCases = new FileOperationsCases();
+            HomeActivity myHomeActivity = new HomeActivity("Ironing", 2, "Saturday");
+            string serialized = JsonConvert.SerializeObject(myHomeActivity, Formatting.Indented);
+            Debug.WriteLine(serialized);
+            Debug.WriteLine(serialized.DeserializeJson<HomeActivity>());
+            Debug.WriteLine($"{myHomeActivity.Name}, {myHomeActivity.Duration}, {myHomeActivity.WeekDay}");
+            fileOperationsCases.WritingJsonToFile(myHomeActivity);
+            fileOperationsCases.ReadingFromFile();
 
             //ActivityData weekDay = ActivityData.WeekDay;
             //int enumInt = weekDay.GetIntValueOfEnum();
@@ -401,8 +401,8 @@ namespace HelloWorld
             //fileOperationsAdvancedCases.CreateDirectory(@"Directory3");
             //fileOperationsAdvancedCases.ListDirectories();
 
-            var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
-            Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
+            //var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
+            //Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
 
 

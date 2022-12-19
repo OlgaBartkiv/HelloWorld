@@ -33,6 +33,7 @@ namespace HelloWorld
             }
         }
 
+        // 'using' statement is used here
         public void ReadingFromFile()
         {
             var testDirectory = TestContext.CurrentContext.TestDirectory;
@@ -40,29 +41,33 @@ namespace HelloWorld
             List<HomeActivity> listOfActivities = new List<HomeActivity>();
             string line;
 
-            StreamReader file = new StreamReader(testDirectory + @"\FileB.txt");
-
-            if (File.Exists(testDirectory + @"\FileB.txt"))
+            using (StreamReader file = new StreamReader(testDirectory + @"\FileB.txt"))
             {
-                while ((line = file.ReadLine()) != null)
+                if (File.Exists(testDirectory + @"\FileB.txt"))
                 {
-                    if (line == string.Empty)
+                    while ((line = file.ReadLine()) != null)
                     {
-                        continue;
-                    }    
-                    string[] words = line.Split(',');
-                    listOfActivities.Add(new HomeActivity(words[(int)ActivityData.Name], int.Parse(words[(int)ActivityData.Duration]), words[(int)ActivityData.WeekDay]));
+                        if (line == string.Empty)
+                        {
+                            continue;
+                        }
+                        string[] words = line.Split(',');
+                        listOfActivities.Add(new HomeActivity(words[(int)ActivityData.Name], int.Parse(words[(int)ActivityData.Duration]), words[(int)ActivityData.WeekDay]));
+                    }
+                    foreach (var item in listOfActivities)
+                    {
+                        Debug.WriteLine($"{item.Name}, {item.Duration}, {item.WeekDay}");
+                    }
+                    file.Close();
                 }
-                foreach (var item in listOfActivities)
+                else
                 {
-                    Debug.WriteLine($"{item.Name}, {item.Duration}, {item.WeekDay}");
+                    Debug.WriteLine("Specified file does not exist");
                 }
-                file.Close();
+
             }
-            else
-            {
-                Debug.WriteLine("Specified file does not exist");
-            }
+                
+
 
             // re-writing to FileB in Json format
             string serializedB = JsonConvert.SerializeObject(listOfActivities, Formatting.Indented);
