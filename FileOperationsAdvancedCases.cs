@@ -22,6 +22,7 @@ namespace HelloWorld
             DirectoryInfo subDir = dir.CreateSubdirectory(directoryName);
         }
 
+        // 'using' statement is used here
         public void WriteToFile()
         {
             string path = TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt";
@@ -39,6 +40,7 @@ namespace HelloWorld
             }
         }
 
+        // 'using' statement is used here
         public void ReadFile()
         {
             using (StreamReader file = new StreamReader(TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt"))
