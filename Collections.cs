@@ -190,7 +190,7 @@ namespace HelloWorld
 
         }
 
-
+        // // 'nameof' is used here
         public void PetsListMethods()
         {
             Pet pet1 = new Pet ("Dog", "Chester", 15);
@@ -214,27 +214,27 @@ namespace HelloWorld
                                 select p;
             foreach(Pet ordered in orderByResult)
             {
-                Debug.WriteLine($"Alias: {ordered.Alias}");
+                Debug.WriteLine(nameof(ordered.Alias) + ":" + ordered.Alias);
             }
 
             //calculate capacity
-            Debug.WriteLine("Initial Capacity of Pets collection is: " + pets.Capacity);
+            Debug.WriteLine(nameof(pets.Capacity) + " of elements in Pets collection: " + pets.Capacity);
 
             //calculate count of elements
-            Debug.WriteLine("Initial Count of elements in Pets collection is: " + pets.Count);
+            Debug.WriteLine(nameof(pets.Count) + " of elements in Pets collection: " + pets.Count);
 
             //using TrimExcess method to remove extra capacity
             pets.TrimExcess();
             Debug.WriteLine("After TrimExcess: ");
-            Debug.WriteLine("Capacity: " + pets.Capacity);
-            Debug.WriteLine("Count: " + pets.Count);
+            Debug.WriteLine(nameof(pets.Capacity) + ":" + pets.Capacity);
+            Debug.WriteLine(nameof(pets.Count) + ":" + pets.Count);
 
             // adding one more element to collection
             Pet pet6 = new Pet("Chicken", "Bill", 1.1f);
             pets.Add(pet6);
             Debug.WriteLine("After element was added: ");
-            Debug.WriteLine("Capacity: " + pets.Capacity);
-            Debug.WriteLine("Count: " + pets.Count);
+            Debug.WriteLine(nameof(pets.Capacity) + ":" + pets.Capacity);
+            Debug.WriteLine(nameof(pets.Count) + ":" + pets.Count);
 
             // find pet by alias using Find method
             Debug.WriteLine(("Found pet with alias \"Rey\": ", pets.Find(x => x.Alias == "Rey")));

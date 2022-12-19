@@ -55,6 +55,7 @@ namespace HelloWorld
             }
         }
 
+        // 'nameof' is used here
         public void ViewFileInfo()
         {
             FileInfo FileProps = new FileInfo(TestContext.CurrentContext.TestDirectory + @"\FirstFile.txt");
