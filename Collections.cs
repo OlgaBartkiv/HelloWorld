@@ -22,9 +22,22 @@ namespace HelloWorld
             // printing all the elements in updated collection
             Console.WriteLine(string.Join(",", Countries));
 
+            // get second element from end using Index from end operator ^
+            string prelast = Countries[^2];
+            Debug.WriteLine(prelast);
+
             // get first element of the collection
             string firstCountry = Countries[0];
             Console.WriteLine(firstCountry);
+
+            // get first element using Linq
+            Debug.WriteLine(Countries.First());
+
+            // get all elements of collection excluding the first element using Linq
+            Countries = Countries.Where(x => x != Countries.First()).ToList();
+
+            // remove first element using Linq Query method
+            Countries.RemoveAll(x => x == Countries.First());
 
             // removing the first element in collection
             Countries.Remove(firstCountry);
@@ -138,6 +151,46 @@ namespace HelloWorld
             }
         }
 
+        /// <summary>
+        /// Identifying unique elements in array using Linq 
+        /// </summary>
+        public void IdentifyUniqueElementsLinq()
+        {
+            int[] myArray = { 1, 2, 3, 4, 5, 5, 15, 3, 7, 8, 5, 2, 9, 5, 1, 11, 12, 14, 5, 2 };
+
+            var myArray2 = myArray.Distinct();
+
+            foreach (var i in myArray2)
+                Debug.WriteLine(i);
+        }
+
+        /// <summary>
+        /// Get certain range of elements using Range operator ..
+        /// </summary>
+        public void GetRangeOfElements()
+        {
+            int[] myArray = { 1, 2, 3, 4, 5, 5, 15, 3, 7, 8, 5, 2, 9, 5, 1, 11, 12, 14, 5, 2 };
+
+            // pick all elements
+            int[] all = myArray[..];
+            Debug.WriteLine(all);
+
+            // pick all elements excluding the first and the last ones
+            int start = 1;
+            int[] collection = myArray[start..^start];
+            Debug.WriteLine(collection);
+
+            // pick elements from 5th inclusively to 8th exclusively
+            int from = 5;
+            int to = 8;
+            int[] selected = myArray[from..to];
+            Debug.WriteLine(selected); // output 5 15 3
+
+
+
+        }
+
+
         public void PetsListMethods()
         {
             Pet pet1 = new Pet ("Dog", "Chester", 15);
@@ -149,11 +202,20 @@ namespace HelloWorld
             List<Pet> pets = new List<Pet>() { pet1, pet2, pet3, pet4, pet5 };
 
 
-            //sort collection by weight
+            //sort collection by weight using Linq Method syntax
             Debug.WriteLine("sorted by weight ascending:");
 
             List<Pet> sorted = pets.OrderBy(x => x.Weight).ToList();
             Debug.WriteLine(String.Join(Environment.NewLine, sorted));
+
+            // sort collection by weight using Linq Query syntax
+            var orderByResult = from p in pets
+                                orderby p.Weight
+                                select p;
+            foreach(Pet ordered in orderByResult)
+            {
+                Debug.WriteLine($"Alias: {ordered.Alias}");
+            }
 
             //calculate capacity
             Debug.WriteLine("Initial Capacity of Pets collection is: " + pets.Capacity);
@@ -180,6 +242,15 @@ namespace HelloWorld
             // find pet by alias using IndexOf method
             int index = pets.IndexOf(pet4);
             Debug.WriteLine("Index of pet \"Rey\": " + index);
+
+            // find pet with Alias = Rey (Linq Query syntax)
+            var myPet = from p in pets
+                        where p.Alias == "Rey"
+                        select p;
+
+            // find pet with Alias = Rey (Linq Method syntax)
+            var result = pets.Where(p => p.Alias == "Rey");
+
 
             // delete element
             pets.RemoveAt(index);
@@ -231,6 +302,10 @@ namespace HelloWorld
             int topRated = politicians2.Keys.Max();
             int indexTopRated = politicians2.IndexOfKey(topRated);
             Debug.WriteLine($"The top-rated politician is: rating:{topRated}, info:{GetPoliticianInfo(politicians2.Values[indexTopRated])}");
+
+            // find top-rated politician using Linq Method syntax
+            var top1 = politicians2.Max(s => s.Key);
+            Debug.WriteLine($"Top rating is {top1}");
 
             // delete element from SortedList
             string putin = "Putin";

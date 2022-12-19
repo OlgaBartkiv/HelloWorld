@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
