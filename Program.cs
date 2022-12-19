@@ -404,7 +404,20 @@ namespace HelloWorld
             var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
             Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
+            object b = new Dog("Barney", 25, 4);
+            Debug.WriteLine(b is MyAnimal);  // output: True
+            Debug.WriteLine(b.GetType() == typeof(MyAnimal));  // output: False
 
+            Debug.WriteLine(b is Dog);  // output: True
+            Debug.WriteLine(b.GetType() == typeof(Dog));  // output: True
+
+
+            Type t1 = typeof(Politician);
+            Debug.WriteLine(nameof(t1.AssemblyQualifiedName) + ":" + t1.AssemblyQualifiedName);
+            Debug.WriteLine(nameof(t1.FullName) + ":" + t1.FullName);
+            Debug.WriteLine(nameof(t1.IsValueType) + ":" + t1.IsValueType);
+            Debug.WriteLine(nameof(t1.Name) + ":" + t1.Name);
+            Debug.WriteLine(nameof(t1.Namespace) + ":" + t1.Namespace);
 
 
 
