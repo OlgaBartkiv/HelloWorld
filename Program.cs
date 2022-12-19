@@ -374,18 +374,37 @@ namespace HelloWorld
             //}
 
             // using checked keyword
-            checked
-            {
-                int n = int.MaxValue;
-                Debug.WriteLine(n + 10); // output: System.OverflowException
-            }
+            //checked
+            //{
+            //    int n = int.MaxValue;
+            //    Debug.WriteLine(n + 10); // output: System.OverflowException
+            //}
 
             // using unchecked keyword
-            unchecked
-            {
-                int n = int.MaxValue;
-                Debug.WriteLine(n + 10); // No Exception// output: -2147483639
-            }
+            //unchecked
+            //{
+            //    int n = int.MaxValue;
+            //    Debug.WriteLine(n + 10); // No Exception// output: -2147483639
+            //}
+
+            FileOperationsAdvancedCases fileOperationsAdvancedCases = new FileOperationsAdvancedCases();
+            fileOperationsAdvancedCases.CreateFile(@"\FirstFile.txt");
+            fileOperationsAdvancedCases.WriteToFile();
+            fileOperationsAdvancedCases.ReadFile();
+            fileOperationsAdvancedCases.ViewFileInfo();
+            fileOperationsAdvancedCases.CreateFile(@"\SecondFile.txt");
+            fileOperationsAdvancedCases.CreateFile(@"\ThirdFile.txt");
+            fileOperationsAdvancedCases.CreateFile(@"\FourthFile.txt");
+            fileOperationsAdvancedCases.ListFiles();
+            fileOperationsAdvancedCases.CreateDirectory(@"Directory1");
+            fileOperationsAdvancedCases.CreateDirectory(@"Directory2");
+            fileOperationsAdvancedCases.CreateDirectory(@"Directory3");
+            fileOperationsAdvancedCases.ListDirectories();
+
+
+
+
+
 
         }
 
