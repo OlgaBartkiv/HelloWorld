@@ -5,12 +5,13 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using RateSetter.WorkingDays;
+using System.Threading.Tasks;
 
 namespace HelloWorld
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
@@ -403,6 +404,16 @@ namespace HelloWorld
 
             var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
             Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
+
+
+            var client = new HttpClientCases();
+            await client.GetToken();
+            await client.GetBookingIDs();
+            await client.GetBookingById(8);
+            await client.UpdateBookingById(136);
+            await client.DeleteBookingById(136);
+            await client.GetDeletedBookingById(136);
+            await client.AddNewBooking();
 
 
 
