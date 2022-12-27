@@ -406,13 +406,22 @@ namespace HelloWorld
             Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
 
-            var client = new HttpClientCases();
+            //var client = new HttpClientCases();
+            //await client.GetToken();
+            //await client.GetBookingIDs();
+            //await client.GetBookingById(8);
+            //await client.UpdateBookingById(136);
+            //await client.DeleteBookingById(136);
+            //await client.GetDeletedBookingById(136);
+            //await client.AddNewBooking();
+
+            var client = new RestSharpCases();
             await client.GetToken();
             await client.GetBookingIDs();
-            await client.GetBookingById(8);
-            await client.UpdateBookingById(136);
-            await client.DeleteBookingById(136);
-            await client.GetDeletedBookingById(136);
+            await client.GetBookingById(11);
+            await client.UpdateBookingById(11);
+            await client.DeleteBookingById(11);
+            await client.GetDeletedBookingById(11);
             await client.AddNewBooking();
 
 
