@@ -17,25 +17,25 @@ namespace HelloWorld
 
         public async Task<string> GetToken()
         {
-            var client = new RestClient(BaseUrl);
-            var request = new RestRequest("auth", Method.Post);
-            request.AddHeader("Content-Type", "application/json");
             var data = new Dictionary<string, string>
             {
                 {"username", "admin"},
                 {"password", "password123"}
             };
+            using var client = new RestClient(BaseUrl);
+            var request = new RestRequest("auth", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
             request.AddBody(data);
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             var token = response.Content.DeserializeJson<AuthToken>();
             return token.Token;
         }
 
         public async Task GetBookingIDs()
         {
-            var client = new RestClient(BaseUrl);
+            using var client = new RestClient(BaseUrl);
             var request = new RestRequest("booking", Method.Get);
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             var bookingIds = response.Content;
             var bookingIdsRaw = JsonConvert.DeserializeObject<List<BookingID>>(bookingIds);
             foreach (var bookingId in bookingIdsRaw)
@@ -46,10 +46,10 @@ namespace HelloWorld
 
         public async Task GetBookingById(int Id)
         {
-            var client = new RestClient(BaseUrl);
+            using var client = new RestClient(BaseUrl);
             var request = new RestRequest($"booking/{Id}", Method.Get);
             request.AddHeader("Accept", "application/json");
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             var bookingInfo = response.Content;
             var bookingInfoRaw = JsonConvert.DeserializeObject<BookingInfo>(bookingInfo);
             Debug.WriteLine($" {bookingInfoRaw.FirstName}, {bookingInfoRaw.LastName}, {bookingInfoRaw.TotalPrice}, {bookingInfoRaw.DepositPaid}, {bookingInfoRaw.BookingDates.Checkin}, {bookingInfoRaw.BookingDates.Checkout}, {bookingInfoRaw.AdditionalNeeds}");
@@ -57,17 +57,17 @@ namespace HelloWorld
 
         public async Task UpdateBookingById(int Id)
         {
-            var client = new RestClient(BaseUrl);
-            var request = new RestRequest($"booking/{Id}", Method.Patch);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Cookie", $"token={GetToken().Result}");
             var data = new Dictionary<string, string>
             {
                 {"firstname", "Olga"},
                 {"lastname", "Bartkiv"}
             };
+            using var client = new RestClient(BaseUrl);
+            var request = new RestRequest($"booking/{Id}", Method.Patch);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Cookie", $"token={GetToken().Result}");
             request.AddBody(data);
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             var updatedBooking = response.Content;
             var bookingInfoRaw = JsonConvert.DeserializeObject<BookingInfo>(updatedBooking);
             Debug.WriteLine($" {bookingInfoRaw.FirstName}, {bookingInfoRaw.LastName}");
@@ -75,20 +75,20 @@ namespace HelloWorld
 
         public async Task DeleteBookingById(int Id)
         {
-            var client = new RestClient(BaseUrl);
+            using var client = new RestClient(BaseUrl);
             var request = new RestRequest($"booking/{Id}", Method.Delete);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", $"token={GetToken().Result}");
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             Debug.WriteLine(response.StatusCode);
 
         }
 
         public async Task GetDeletedBookingById(int Id)
         {
-            var client = new RestClient(BaseUrl);
+            using var client = new RestClient(BaseUrl);
             var request = new RestRequest($"booking/{Id}", Method.Get);
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             if (response.IsSuccessStatusCode)
             {
                 var result = response.Content;
@@ -113,11 +113,11 @@ namespace HelloWorld
                 AdditionalNeeds = "Parking for reindeers"
             };
             var stringNewBooking = JsonConvert.SerializeObject(newBooking);
-            var client = new RestClient(BaseUrl);
+            using var client = new RestClient(BaseUrl);
             var request = new RestRequest("booking", Method.Post);
             request.AddHeader("Accept", "application/json");
             request.AddBody(stringNewBooking);
-            RestResponse response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
             Debug.WriteLine(response.Content);
         }
     }
