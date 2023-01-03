@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RateSetter.WorkingDays;
 using System.Threading.Tasks;
+using HelloWorld.Helpers;
 
 namespace HelloWorld
 {
@@ -415,13 +416,13 @@ namespace HelloWorld
             //await client.GetDeletedBookingById(136);
             //await client.AddNewBooking();
 
-            var client = new RestSharpCases();
+            var client = new HttpClientWrapper("https://restful-booker.herokuapp.com/");
             await client.GetToken();
             await client.GetBookingIDs();
-            await client.GetBookingById(11);
-            await client.UpdateBookingById(11);
-            await client.DeleteBookingById(11);
-            await client.GetDeletedBookingById(11);
+            await client.GetBookingById(7);
+            await client.UpdateBookingById(7);
+            await client.DeleteBookingById(7);
+            await client.GetDeletedBookingById(7);
             await client.AddNewBooking();
 
 
