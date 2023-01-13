@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
-using RateSetter.WorkingDays;
+//using RateSetter.WorkingDays;
 
 namespace HelloWorld
 {
@@ -401,8 +401,8 @@ namespace HelloWorld
             //fileOperationsAdvancedCases.CreateDirectory(@"Directory3");
             //fileOperationsAdvancedCases.ListDirectories();
 
-            var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
-            Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
+            //var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
+            //Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
 
 
