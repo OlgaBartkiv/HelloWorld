@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace HelloWorld
 {
-    public abstract class HomeDevicesFactory
+    public abstract class IHomeDevicesFactory
     {
-        public abstract HomeDevice GetDevice(string deviceType);
-        public static HomeDevicesFactory CreateHomeDevicesFactory(string factoryType)
+        public abstract IHomeDevice GetDevice(string deviceType);
+        public static IHomeDevicesFactory CreateIHomeDevicesFactory(string factoryType)
         {
             if (factoryType.Equals("Kitchen"))
                 return new KitchenDevicesFactory();
@@ -15,9 +16,9 @@ namespace HelloWorld
                 return new CleaningDevicesFactory();
         }
 
-        public class KitchenDevicesFactory : HomeDevicesFactory
+        public class KitchenDevicesFactory : IHomeDevicesFactory
         {
-            public override HomeDevice GetDevice(string deviceType)
+            public override IHomeDevice GetDevice(string deviceType)
             {
                 if (deviceType.Equals("Kettle"))
                 {
@@ -36,59 +37,67 @@ namespace HelloWorld
             }
         }
 
-        public class CleaningDevicesFactory : HomeDevicesFactory
+        public class CleaningDevicesFactory : IHomeDevicesFactory
         {
-            public override HomeDevice GetDevice(string deviceType)
+            public override IHomeDevice GetDevice(string deviceType)
             {
                 if (deviceType.Equals("Hoover"))
                 {
-                    return new Hoover();
+                    return new Hoover(new Toaster());
                 }
                 else if (deviceType.Equals("Washing machine"))
                 {
-                    return new WashingMachine();
+                    return new WashingMachine(new MicrowaveOven());
                 }
                 else
                     return null;
             }
         }
 
-        public interface HomeDevice
+        public interface IHomeDevice
         {
-            string feature();
+            string Feature();
         }
 
-        public class Kettle : HomeDevice
+        public class Kettle : IHomeDevice
         {
-            public string feature()
+            public string Feature()
             {
                 return "boiling water";
             }
         }
-        public class Toaster : HomeDevice
+        public class Toaster : IHomeDevice
         {
-            public string feature()
+            public string Feature()
             {
                 return "toasting bread";
             }
         }
-        public class MicrowaveOven : HomeDevice
+        public class MicrowaveOven : IHomeDevice
         {
-            public string feature()
+            public string Feature()
             {
                 return "warming up food";
             }
         }
-        public class Hoover : HomeDevice
+        public class Hoover : IHomeDevice
         {
-            public string feature()
+            public Hoover(IHomeDevice homeDevice)
+            {
+                Debug.WriteLine(homeDevice.Feature());
+            }
+            public string Feature()
             {
                 return "removing dirt from floor";
             }
         }
-        public class WashingMachine : HomeDevice
+        public class WashingMachine : IHomeDevice
         {
-            public string feature()
+            public WashingMachine(IHomeDevice homeDevice)
+            {
+                Debug.WriteLine(homeDevice.Feature());
+            }
+            public string Feature()
             {
                 return "washing laundry";
             }

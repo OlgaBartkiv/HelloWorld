@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using RateSetter.WorkingDays;
-using static HelloWorld.HomeDevicesFactory;
+using static HelloWorld.IHomeDevicesFactory;
 
 namespace HelloWorld
 {
@@ -405,7 +405,7 @@ namespace HelloWorld
             var add = WorkingDayHelper.Instance.AddWorkingDays(DateTime.Today, 3);
             Debug.WriteLine(add); // output: 12/9/2022 12:00:00 AM
 
-            // 'Chain of Responsibility' pattern usage:
+            //// 'Chain of Responsibility' pattern usage:
             Customer customer = new Customer()
             {
                 Name = "Carl Vosper Mortimer",
@@ -421,36 +421,23 @@ namespace HelloWorld
                 Debug.WriteLine(message);
             }
 
-            // 'Abstract Factory' pattern usage:
-            HomeDevice homeDevice = null;
-            HomeDevicesFactory homeDevicesFactory = null;
-            homeDevicesFactory = HomeDevicesFactory.CreateHomeDevicesFactory("Kitchen");
+            //// 'Abstract Factory' pattern usage:
+            IHomeDevice homeDevice = null;
+            IHomeDevicesFactory homeDevicesFactory = null;
+            homeDevicesFactory = IHomeDevicesFactory.CreateIHomeDevicesFactory("Cleaning");
             Debug.WriteLine("Home Devices Factory type : " + homeDevicesFactory.GetType().Name);
-            homeDevice = homeDevicesFactory.GetDevice("Kettle");
+            homeDevice = homeDevicesFactory.GetDevice("Washing machine");
             Debug.WriteLine("Device Type : " + homeDevice.GetType().Name);
-            Debug.WriteLine(homeDevice.GetType().Name + " is " + homeDevice.feature());
-            homeDevicesFactory = HomeDevicesFactory.CreateHomeDevicesFactory("Cleaning");
+            Debug.WriteLine(homeDevice.GetType().Name + " is " + homeDevice.Feature());
+            homeDevicesFactory = IHomeDevicesFactory.CreateIHomeDevicesFactory("Cleaning");
             Debug.WriteLine("Home Devices Factory type : " + homeDevicesFactory.GetType().Name);
             homeDevice = homeDevicesFactory.GetDevice("Hoover");
             Debug.WriteLine("Device Type : " + homeDevice.GetType().Name);
-            Debug.WriteLine(homeDevice.GetType().Name + " is " + homeDevice.feature());
+            Debug.WriteLine(homeDevice.GetType().Name + " is " + homeDevice.Feature());
 
             // 'Factory Design' pattern usage:
-            string coffeeMachineMake = "Barista T Smart";
-            CoffeeMachine coffeeMachineDetails = null;
+            CoffeeMachine coffeeMachineDetails = CoffeeMachineFactory.GetCoffeeMachine("Barista T Smart");
 
-            if (coffeeMachineMake == "Nescafe Vertuo Plus")
-            {
-                coffeeMachineDetails = new Nestle();
-            }
-            else if (coffeeMachineMake == "The Scoop")
-            {
-                coffeeMachineDetails = new Hamilton();
-            }
-            else if (coffeeMachineMake == "Barista T Smart")
-            {
-                coffeeMachineDetails = new Melitta();
-            }
             if (coffeeMachineDetails != null)
             {
                 Debug.WriteLine("Coffee Machine make : " + coffeeMachineDetails.GetCoffeeMachineMake());
@@ -465,7 +452,7 @@ namespace HelloWorld
             // 'Facade Design' pattern usage:
             Purchase purchase = new Purchase();
             purchase.MakePurchase();
-            
+
 
 
 
